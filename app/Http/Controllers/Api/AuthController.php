@@ -27,7 +27,7 @@ class AuthController extends Controller
         ])->setStatusCode(401);
     }
 
-    public function passwordResetRequest(Request $request)
+    /*public function passwordResetRequest(Request $request)
     {
         $this->validate($request, [
             'email' => 'required|email|exists:users,email',
@@ -80,6 +80,6 @@ class AuthController extends Controller
                 'message' => 'Password changed successfully.'
             ]
         ]);
-    }
+    }*/
 
 }
