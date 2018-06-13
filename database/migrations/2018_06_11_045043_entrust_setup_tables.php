@@ -61,38 +61,8 @@ class EntrustSetupTables extends Migration
 
         DB::commit();
 
-        $owner = new Role();
-        $owner->name         = 'owner';
-        $owner->display_name = 'Project Owner'; // optional
-        $owner->description  = 'User is the owner of a given project'; // optional
-        $owner->save();
-
-        $admin = new Role();
-        $admin->name         = 'admin';
-        $admin->display_name = 'Administrator'; // optional
-        $admin->description  = 'User is allowed to manage and edit other users'; // optional
-        $admin->save();
 
 
-        $trader = new Role();
-        $trader->name         = 'trader';
-        $trader->display_name = 'Trader'; // optional
-        $trader->description  = 'Privileges for traders'; // optional
-        $trader->save();
-
-        $listUsers = new Permission();
-        $listUsers->name         = 'list-users';
-        $listUsers->display_name = 'Create Posts'; // optional
-        // Allow a user to...
-        $listUsers->description  = 'create new blog posts'; // optional
-        $listUsers->save();
-
-        $editUsers = new Permission();
-        $editUsers->name         = 'edit-users';
-        $editUsers->display_name = 'Edit Users'; // optional
-        // Allow a user to...
-        $editUsers->description  = 'edit existing users'; // optional
-        $editUsers->save();
     }
 
     /**

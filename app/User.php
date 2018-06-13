@@ -2,12 +2,14 @@
 
 namespace App;
 
+use App\Models\Api;
 use App\Models\Balance_Percent;
 use App\Models\Follow;
 use App\Models\History_Trading;
 use App\Models\History_Action;
 use App\Models\Invoice;
 use App\Models\Wallet;
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
@@ -60,8 +62,13 @@ class User extends Authenticatable
         return $this->hasMany(Follow::class);
     }
 
-    public function invoice()
+    public function invoices()
     {
         return $this->hasMany(Invoice::class);
+    }
+
+    public function apis()
+    {
+        return $this->belongsToMany(Api::class)->withTimestamps();
     }
 }
