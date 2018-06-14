@@ -14,8 +14,12 @@
 
                         </div>
                     @endif
-                    {{ var_dump($users) }}
+                    @forelse ($users as $user)
+                    {{ $user->name }}
+                    {{ var_dump($user->tradinghistories) }}
                     You are logged in!
+                    @empty
+                    @endforelse
                 </div>
             </div>
         </div>
