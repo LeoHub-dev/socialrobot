@@ -10,9 +10,7 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-        $users = User::with('tradinghistories')
-            ->withCount('tradinghistories')
-            ->simplePaginate(5);
+        $users = User::with('tradinghistories')->withCount('tradinghistories')->simplePaginate(5);
 
         return view('app.dashboard', compact('users'));
     }
