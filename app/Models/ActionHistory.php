@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Models;
-use App\User;
-
+use App\TradingHistory;
 use Illuminate\Database\Eloquent\Model;
 
-class History_Action extends Model
+class ActionHistory extends Model
 {
     //
     public function user()
@@ -15,7 +14,6 @@ class History_Action extends Model
 
     public function tradingInfo()
     {
-        return $this->belongsTo(History_Trading::class)->withTimestamps();
+        return $this->belongsTo(TradingHistory::class)->withTimestamps();
     }
-
 }

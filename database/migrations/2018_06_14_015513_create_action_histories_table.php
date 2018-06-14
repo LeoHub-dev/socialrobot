@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserApisTable extends Migration
+class CreateActionHistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateUserApisTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_apis', function (Blueprint $table) {
+        Schema::create('action_histories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('api_id')->unsigned();
-            $table->string('pub_key');
-            $table->string('secret_key');
+            $table->integer('trading_id')->unsigned();
+            $table->float('amount', 8, 2);
+            $table->boolean('done')->default(false);
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('trading_id')->references('id')->on('trading_histories');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateUserApisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_apis');
+        Schema::dropIfExists('action_histories');
     }
 }

@@ -5,11 +5,8 @@ namespace App\Models;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
-class Balance_Percent extends Model
+class BalancePercent extends Model
 {
-    //
-
-
     public function user()
     {
         return $this->belongsTo(User::class);

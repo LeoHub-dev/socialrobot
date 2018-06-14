@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHistoryTradingsTable extends Migration
+class CreateTradingHistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateHistoryTradingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('history_tradings', function (Blueprint $table) {
+        Schema::create('trading_histories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('trader_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('coins');
             $table->float('amount', 8, 2);
             $table->integer('result')->default('0');
-            $table->foreign('trader_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateHistoryTradingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('history_tradings');
+        Schema::dropIfExists('trading_histories');
     }
 }

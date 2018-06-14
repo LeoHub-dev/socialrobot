@@ -11,9 +11,10 @@
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
+
                         </div>
                     @endif
-
+                    {{ var_dump($users) }}
                     You are logged in!
                 </div>
             </div>

@@ -3,10 +3,10 @@
 namespace App;
 
 use App\Models\Api;
-use App\Models\Balance_Percent;
+use App\Models\BalancePercent;
 use App\Models\Follow;
-use App\Models\History_Trading;
-use App\Models\History_Action;
+use App\Models\TradingHistory;
+use App\Models\ActionHistory;
 use App\Models\Invoice;
 use App\Models\Wallet;
 
@@ -42,19 +42,19 @@ class User extends Authenticatable
         return $this->has(Wallet::class);
     }
 
-    public function Balance_Percent()
+    public function balancepercents()
     {
-        return $this->has(Balance_Percent::class);
+        return $this->has(PercentBalance::class);
     }
 
-    public function history_tradings()
+    public function tradinghistories()
     {
-        return $this->hasMany(History_Trading::class);
+        return $this->hasMany(TradingHistory::class);
     }
 
-    public function history_actions()
+    public function actionhistories()
     {
-        return $this->hasMany(History_Action::class);
+        return $this->hasMany(ActionHistory::class);
     }
 
     public function follows()

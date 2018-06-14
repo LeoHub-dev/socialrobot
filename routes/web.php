@@ -18,10 +18,9 @@ Auth::routes();
 Route::group(['prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']], function () {
 
     Route::get('/dashboard', 'DashboardController@index');
-    Route::get('/manage', ['middleware' => ['permission:manage-admins'], 'uses' => 'AdminController@manageAdmins']);
 
     Route::group(['middleware' => ['role:admin']], function () {
-        Route::resource('blog', 'BlogController'); //Make a CRUD controller
+        Route::resource('user', 'BlogController'); //Make a CRUD controller
     });
 });
 

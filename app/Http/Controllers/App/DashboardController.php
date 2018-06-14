@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers\App;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\User;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('app.dashboard');
+        $users = User::with('tradinghistories')
+            ->withCount('tradinghistories')
+            ->simplePaginate(5);
+
+        return view('app.dashboard', compact('users'));
     }
+
+
 }
