@@ -12,14 +12,9 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
 
-        $users  = User::with('tradinghistories', 'follows')->whereHas('follows', function ($q) {
+        $users = User::with('tradinghistories', 'follows')->whereHas('follows', function ($q) {
             $q->where('follows.user_id', '!=', Auth::id());
-        })->orWhereDoesntHave('follows')->get();
-
-
-        dd($users);
-
-        //dd(Auth::user()->with('tradinghistories', 'follows')->get());
+        })->orWhereDoesntHave('follows')->where('users.id', '!=', Auth::id())->get();
 
         return view('app.dashboard', compact('users'));
     }
