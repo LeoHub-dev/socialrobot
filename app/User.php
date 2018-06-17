@@ -39,12 +39,12 @@ class User extends Authenticatable
 
     public function wallet()
     {
-        return $this->has(Wallet::class);
+        return $this->hasMany(Wallet::class);
     }
 
     public function balancepercents()
     {
-        return $this->has(PercentBalance::class);
+        return $this->hasMany(BalancePercent::class);
     }
 
     public function tradinghistories()
@@ -59,7 +59,7 @@ class User extends Authenticatable
 
     public function follows()
     {
-        return $this->hasMany(Follow::class);
+        return $this->hasMany(Follow::class, 'user_id', 'id');
     }
 
     public function invoices()
@@ -71,4 +71,6 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Api::class)->withTimestamps();
     }
+
+
 }

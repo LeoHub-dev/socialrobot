@@ -17,6 +17,7 @@
                     @forelse ($users as $user)
                     {{ $user->name }}
                     {{ var_dump($user->tradinghistories) }}
+                    {{ var_dump($user->follows) }}
                     You are logged in!
                     @empty
                     @endforelse
