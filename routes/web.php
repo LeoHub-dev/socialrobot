@@ -18,6 +18,9 @@ Auth::routes();
 Route::group(['prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']], function () {
 
     Route::get('/dashboard', 'DashboardController@index');
+    Route::resource('/orders', 'TradingHistoryController', ['only' => ['index', 'show']]);
+    Route::resource('/follows', 'FollowController');
+    Route::put('/follows/{$user}/follow', 'FollowController@follow');
 
     Route::group(['middleware' => ['role:admin']], function () {
         Route::resource('user', 'BlogController'); //Make a CRUD controller
