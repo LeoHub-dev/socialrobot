@@ -37,6 +37,19 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($user) {
+            
+        });
+
+        static::deleting(function ($user) {
+            
+        });
+    }
+
     public function wallet()
     {
         return $this->hasMany(Wallet::class);
