@@ -40,6 +40,20 @@ class TradingHistory extends Model
 
             $user_trading->reputation = floor(($trading_total / $trading_n) * 100);
             $user_trading->save();
+
+            foreach($user_trading->followers()->get() as $follower) {
+
+                /*$follow->actionhistories()->create([
+                    'trading_id' => $trading->id,
+                    'amount' => '100',
+                    'result' => $request->result
+                ]);*/
+
+                Debugbar::info($follower->user()->get());
+
+                Debugbar::info($follower->user()->get()->first()->name);
+                
+            }
             
         });
 

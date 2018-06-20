@@ -23,12 +23,6 @@ Route::group(['prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']]
     Route::resource('/follows', 'FollowController');
     Route::get('/follows/{user}/follow', 'FollowController@follow');
 
-    //Route::put('/follows/{user}/follow', function() {
-	    //
-	    	//echo "sasx";
-	//});
-
-
     Route::group(['middleware' => ['role:admin']], function () {
         Route::resource('user', 'BlogController'); //Make a CRUD controller
     });
