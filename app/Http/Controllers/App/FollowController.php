@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\App;
 
 use App\Models\Follow;
-use App\Models\User;
+use App\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
-class PostController extends Controller
+class FollowController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -140,11 +141,12 @@ class PostController extends Controller
         //$this->validate($request, ['body' => 'required']);
 
         Auth::user()->follows()->create([
-            'trader_id' => $user->id
+            'trader_id' => $user->id,
+            'percent_to_trader' => 10
         ]);
         flash()->overlay('Comment successfully created');
 
-        return redirect("/posts/{$post->id}");
+        return redirect("/app/dashboard");
 
     }
 }

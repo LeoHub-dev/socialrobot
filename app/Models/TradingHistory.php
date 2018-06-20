@@ -4,9 +4,14 @@ namespace App\Models;
 use App\User;
 
 use Illuminate\Database\Eloquent\Model;
+use Debugbar;
 
 class TradingHistory extends Model
 {
+    protected $fillable = [
+        'user_id', 'coins', 'amount', 'result',
+    ];
+
 	protected static function boot()
     {
         parent::boot();
@@ -14,21 +19,26 @@ class TradingHistory extends Model
         static::creating(function ($trading) {
 
         	$trading_total = 0;
-        	$trading_count = 0;
+        	$trading_n = 0;
 
             $user_trading = User::find($trading->user_id);
-            foreach ($user_trading->tradinghistories() as $data) {
-            	if($trading->result == 1): 
+
+            foreach($user_trading->tradinghistories()->get() as $trading) {
+
+                if($trading->result == 1){
                     $trading_total++;
-                elseif($trading->result == 2): 
+                }
+                else if($trading->result == 2){
                     $trading_total--;
-                endif; 
-                $trading_count++;
+                }
+
+                $trading_n++;
+                
             }
 
-            if($trading_count == 0) : $trading_count = 1; else : $trading_count = $trading_count; endif;
+            if($trading_n == 0) : $trading_n = 1; endif;
 
-            $user_trading->reputation = floor(($trading_total / $trading_count) * 100);
+            $user_trading->reputation = floor(($trading_total / $trading_n) * 100);
             $user_trading->save();
             
         });
@@ -36,21 +46,26 @@ class TradingHistory extends Model
         static::updated(function ($trading) {
 
             $trading_total = 0;
-        	$trading_count = 0;
+            $trading_n = 0;
 
             $user_trading = User::find($trading->user_id);
-            foreach ($user_trading->tradinghistories() as $data) {
-            	if($trading->result == 1): 
+
+            foreach($user_trading->tradinghistories()->get() as $trading) {
+
+                if($trading->result == 1){
                     $trading_total++;
-                elseif($trading->result == 2): 
+                }
+                else if($trading->result == 2){
                     $trading_total--;
-                endif; 
-                $trading_count++;
+                }
+
+                $trading_n++;
+                
             }
 
-            if($trading_count == 0) : $trading_count = 1; else : $trading_count = $trading_count; endif;
+            if($trading_n == 0) : $trading_n = 1; endif;
 
-            $user_trading->reputation = floor(($trading_total / $trading_count) * 100);
+            $user_trading->reputation = floor(($trading_total / $trading_n) * 100);
             $user_trading->save();
 
         });
