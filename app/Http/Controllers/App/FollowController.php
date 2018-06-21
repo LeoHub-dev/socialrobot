@@ -18,9 +18,9 @@ class FollowController extends Controller
      */
     public function index()
     {
-        $posts = Post::with(['user', 'category', 'tags', 'comments'])->paginate(10);
+        $follows = Auth::user()->followers()->with(['user'])->paginate(10);
 
-        return view('admin.posts.index', compact('posts'));
+        return view('app.follows.index', compact('follows'));
     }
 
     /**
@@ -136,7 +136,7 @@ class FollowController extends Controller
         return redirect('/admin/posts');
     }
 
-    public function follow(User $user)
+    public function follow(User $user, Request $request)
     {
         //$this->validate($request, ['body' => 'required']);
 

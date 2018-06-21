@@ -17,6 +17,7 @@
                     @forelse ($users as $user)
                     {{ $user->name }}
                     {{ $user->reputation }}%
+                    <a href="{{ url("/app/follows/{$user->id}/follow") }}" data-method="DELETE" data-token="{{ csrf_token() }}" data-confirm="Are you sure?" class="btn btn-xs btn-info">Follow</a>
                     @empty
                     You are logged in!
                     @endforelse

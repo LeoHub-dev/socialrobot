@@ -80,6 +80,16 @@ class User extends Authenticatable
         return $this->hasMany(Follow::class, 'trader_id', 'id');
     }
 
+    public function isFollowing(User $user)
+    {
+        return !! $this->follows()->where('trader_id', $user->id)->count();
+    }
+
+    public function isFollowedBy(User $user)
+    {
+        return !! $this->followers()->where('user_id', $user->id)->count();
+    }
+
     public function invoices()
     {
         return $this->hasMany(Invoice::class);
