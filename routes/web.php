@@ -18,10 +18,10 @@ Auth::routes();
 Route::group(['prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']], function () {
 
     Route::get('/dashboard', 'DashboardController@index');
-    Route::resource('/orders', 'TradingHistoryController', ['only' => ['index']]);
-    Route::get('/orders/add', 'TradingHistoryController@add');
+    Route::resource('/orders', 'TradingHistoryController', ['only' => ['index','store']]);
+    //Route::get('/orders/add', 'TradingHistoryController@add');
     Route::resource('/follows', 'FollowController');
-    Route::get('/follows/{user}/follow', 'FollowController@follow');
+    //Route::get('/follows/{user}/follow', 'FollowController@follow');
 
     Route::group(['middleware' => ['role:admin']], function () {
         Route::resource('user', 'BlogController'); //Make a CRUD controller

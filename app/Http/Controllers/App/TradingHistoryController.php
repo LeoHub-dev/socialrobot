@@ -37,15 +37,15 @@ class TradingHistoryController extends Controller
     }
 
     
-    public function add(Request $request)
+    public function store(Request $request)
     {
-        //$this->validate($request, ['body' => 'required']);
+        $this->validate($request, ['coins' => 'required', 'amount' => 'required']);
 
         Auth::user()->tradinghistories()->create([
-            'coins' => "BTC-USD",
-            'amount' => '100',
-            'result' => $request->result
+            'coins' => $request->coins,
+            'amount' => $request->amount
         ]);
+        
         flash()->overlay('Comment successfully created');
 
         return redirect("/app/dashboard");

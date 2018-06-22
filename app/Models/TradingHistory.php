@@ -16,25 +16,27 @@ class TradingHistory extends Model
     {
         parent::boot();
 
-        static::creating(function ($trading) {
+        static::created(function ($trading) {
 
         	$trading_total = 0;
         	$trading_n = 0;
 
             $user_trading = User::find($trading->user_id);
 
-            foreach($user_trading->tradinghistories()->get() as $trading) {
+            foreach($user_trading->tradinghistories()->get() as $trading_loop) {
 
-                if($trading->result == 1){
+                if($trading_loop->result == 1){
                     $trading_total++;
                 }
-                else if($trading->result == 2){
+                else if($trading_loop->result == 2){
                     $trading_total--;
                 }
 
                 $trading_n++;
                 
             }
+
+            Debugbar::info($trading_total);
 
             if($trading_n == 0) : $trading_n = 1; endif;
 
