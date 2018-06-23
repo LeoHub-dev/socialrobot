@@ -17,7 +17,11 @@ Auth::routes();
 
 Route::group(['prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']], function () {
 
-    Route::get('/dashboard', 'DashboardController@index');
+	Route::get('/', function() {
+	    return redirect('/app/dashboard');
+	});
+
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('/orders', 'TradingHistoryController', ['only' => ['index','store']]);
     //Route::get('/orders/add', 'TradingHistoryController@add');
     Route::resource('/follows', 'FollowController');
