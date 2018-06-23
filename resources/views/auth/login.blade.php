@@ -3,6 +3,7 @@
 @section('content')
 <div class="col-md-4 ml-auto mr-auto">
     <form action="{{ route('login') }}" method="POST">
+        @csrf
         <div class="card card-login card-plain">
             <div class="card-header ">
                 <div class="logo-container">
@@ -43,9 +44,10 @@
                 </div>
             </div>
             <div class="card-footer ">
-                <a class="btn btn-primary btn-round btn-lg btn-block mb-3" href="#pablo">
-                    Get Started
-                </a>
+                <button type="submit" class="btn btn-primary btn-round btn-lg btn-block mb-3">
+                    {{ __('Login') }}
+                </button>
+           
                 <div class="pull-left">
                     <h6>
                         <a class="link footer-link" href="#pablo">
