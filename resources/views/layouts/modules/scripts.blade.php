@@ -38,8 +38,3 @@
 <script src="{{ asset('uidash/js/now-ui-dashboard.min.js?v=1.1.0" type="text/javascript') }}"></script>
 <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('uidash/demo/demo.js') }}"></script>
-<script>
-  $(document).ready(function() {
-    demo.checkFullPageBackgroundImage();
-  });
-</script>

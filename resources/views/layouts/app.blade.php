@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@include('layouts.app.head')
+@include('layouts.modules.head')
 
 <body class=" sidebar-mini ">
   <!-- Google Tag Manager (noscript) -->
@@ -20,10 +20,15 @@
           @yield('content')
         </div>
       </div>
-      @include('layouts.app.footer')
+      @include('layouts.modules.footer')
     </div>
   </div>
-  @include('layouts.app.scripts')
+  @include('layouts.modules.scripts')
+  <script>
+    $(document).ready(function() {
+      demo.checkFullPageBackgroundImage();
+    });
+  </script>
 </body>
 
 </html>
