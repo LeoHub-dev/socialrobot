@@ -70,8 +70,8 @@
                         </a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#pablo">
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" id="navbarDropdownUserLink">
                         <i class="now-ui-icons users_single-02">
                         </i>
                         <p>
@@ -80,6 +80,20 @@
                             </span>
                         </p>
                     </a>
+                    <div aria-labelledby="navbarDropdownUserLink" class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                        <a class="dropdown-item" href="#">
+                            Another action
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            Something else here
+                        </a>
+                    </div>
                 </li>
             </ul>
         </div>

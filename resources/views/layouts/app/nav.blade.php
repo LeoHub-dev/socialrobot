@@ -17,22 +17,22 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navigation">
       <ul class="navbar-nav">
-        <li class="nav-item">
+        <li class="nav-item {{ setActive('dashboard') }}">
           <a href="{{ route('dashboard') }}" class="nav-link">
             <i class="now-ui-icons design_app"></i> Dashboard
           </a>
         </li>
-        <li class="nav-item ">
-          <a href="{{ route('register') }}" class="nav-link">
-            <i class="now-ui-icons tech_mobile"></i> Register
-          </a>
-        </li>
-        <li class="nav-item  active ">
+        <li class="nav-item  {{ setActive('login') }} ">
           <a href="{{ route('login') }}" class="nav-link">
             <i class="now-ui-icons users_circle-08"></i> Login
           </a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item {{ setActive('register') }}">
+          <a href="{{ route('register') }}" class="nav-link">
+            <i class="now-ui-icons tech_mobile"></i> Register
+          </a>
+        </li>
+        <li class="nav-item {{ setActive('lock') }} ">
           <a href="lock.html" class="nav-link">
             <i class="now-ui-icons ui-1_lock-circle-open"></i> Lock
           </a>

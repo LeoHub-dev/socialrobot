@@ -146,13 +146,14 @@
                             </input>
                         </label>
                     </div>
-                </form>
+                
             </div>
             <div class="card-footer ">
-                <a class="btn btn-primary btn-round btn-lg" href="#pablo">
-                    Get Started
-                </a>
+                <button type="submit" class="btn btn-primary btn-round btn-lg">
+                    {{ __('Register') }}
+                </button>
             </div>
+            </form>
         </div>
     </div>
 </div>

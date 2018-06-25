@@ -3,7 +3,6 @@
   <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('uidash/img/apple-icon.png') }}">
   <link rel="icon" type="image/png" href="{{ asset('uidash/img/favicon.png') }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>
@@ -18,9 +17,6 @@
   <link href="{{ asset('uidash/css/now-ui-dashboard.css?v=1.1.0') }}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{ asset('uidash/demo/demo.css') }}" rel="stylesheet" />
-
-  <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
 
   <!-- Google Tag Manager -->
   <script>

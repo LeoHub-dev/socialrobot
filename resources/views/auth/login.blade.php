@@ -21,11 +21,7 @@
                     </span>
                     <input id="email" type="email" placeholder="Email ..." class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
                     </input>
-                    @if ($errors->has('email'))
-                        <span class="invalid-feedback">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
+                    
                 </div>
                 <div class="input-group no-border form-control-lg">
                     <div class="input-group-prepend">
@@ -36,12 +32,15 @@
                     </div>
                     <input id="password" type="password" placeholder="Password ..." class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
                     </input>
-                    @if ($errors->has('password'))
-                        <span class="invalid-feedback">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
+
                 </div>
+
+                @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger">
+                      <span>{{ $error }}</span>
+                    </div>
+                @endforeach
+                
             </div>
             <div class="card-footer ">
                 <button type="submit" class="btn btn-primary btn-round btn-lg btn-block mb-3">

@@ -11,28 +11,25 @@
         </a>
         <div class="navbar-minimize">
             <button class="btn btn-simple btn-icon btn-neutral btn-round" id="minimizeSidebar">
-                <i class="now-ui-icons text_align-center visible-on-sidebar-regular">
-                </i>
-                <i class="now-ui-icons design_bullet-list-67 visible-on-sidebar-mini">
-                </i>
+                <i class="now-ui-icons text_align-center visible-on-sidebar-regular"></i>
+                <i class="now-ui-icons design_bullet-list-67 visible-on-sidebar-mini"></i>
             </button>
         </div>
     </div>
     <div class="sidebar-wrapper">
         <div class="user">
             <div class="photo">
-                <img src="../assets/img/james.jpg"/>
+                <img src="{{ asset('uidash/img/'.Auth::user()->profile_img) }}"/>
             </div>
             <div class="info">
-                <a class="collapsed" data-toggle="collapse" href="#collapseExample">
+                <a data-toggle="collapse" href="#collapseExample" class="collapsed">
                     <span>
                         James Amos
                         <b class="caret">
                         </b>
                     </span>
                 </a>
-                <div class="clearfix">
-                </div>
+                <div class="clearfix"></div>
                 <div class="collapse" id="collapseExample">
                     <ul class="nav">
                         <li>

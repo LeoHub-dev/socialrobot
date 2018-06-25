@@ -78,461 +78,81 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-lg-4 col-md-6">
-        <div class="card card-chart">
-            <div class="card-header">
-                <h5 class="card-category">
-                    Active Users
-                </h5>
-                <h2 class="card-title">
-                    34,252
-                </h2>
-                <div class="dropdown">
-                    <button class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown" type="button">
-                        <i class="now-ui-icons loader_gear">
-                        </i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#">
-                            Action
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            Another action
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            Something else here
-                        </a>
-                        <a class="dropdown-item text-danger" href="#">
-                            Remove Data
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="chart-area">
-                    <canvas id="activeUsers">
-                    </canvas>
-                </div>
-                <div class="table-responsive">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/US.png">
-                                        </img>
-                                    </div>
-                                </td>
-                                <td>
-                                    USA
-                                </td>
-                                <td class="text-right">
-                                    2.920
-                                </td>
-                                <td class="text-right">
-                                    53.23%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/DE.png">
-                                        </img>
-                                    </div>
-                                </td>
-                                <td>
-                                    Germany
-                                </td>
-                                <td class="text-right">
-                                    1.300
-                                </td>
-                                <td class="text-right">
-                                    20.43%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/AU.png">
-                                        </img>
-                                    </div>
-                                </td>
-                                <td>
-                                    Australia
-                                </td>
-                                <td class="text-right">
-                                    760
-                                </td>
-                                <td class="text-right">
-                                    10.35%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/GB.png">
-                                        </img>
-                                    </div>
-                                </td>
-                                <td>
-                                    United Kingdom
-                                </td>
-                                <td class="text-right">
-                                    690
-                                </td>
-                                <td class="text-right">
-                                    7.87%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/RO.png">
-                                        </img>
-                                    </div>
-                                </td>
-                                <td>
-                                    Romania
-                                </td>
-                                <td class="text-right">
-                                    600
-                                </td>
-                                <td class="text-right">
-                                    5.94%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/BR.png">
-                                        </img>
-                                    </div>
-                                </td>
-                                <td>
-                                    Brasil
-                                </td>
-                                <td class="text-right">
-                                    550
-                                </td>
-                                <td class="text-right">
-                                    4.34%
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card-footer">
-                <div class="stats">
-                    <i class="now-ui-icons arrows-1_refresh-69">
+<!-- Classic Modal -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="myModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <button aria-hidden="true" class="close" data-dismiss="modal" type="button">
+                    <i class="now-ui-icons ui-1_simple-remove">
                     </i>
-                    Just Updated
-                </div>
+                </button>
+                <h4 class="title title-up">
+                    Modal title
+                </h4>
             </div>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <div class="card card-chart">
-            <div class="card-header">
-                <h5 class="card-category">
-                    Summer Email Campaign
-                </h5>
-                <h2 class="card-title">
-                    55,300
-                </h2>
-                <div class="dropdown">
-                    <button class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown" type="button">
-                        <i class="now-ui-icons loader_gear">
-                        </i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#">
-                            Action
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            Another action
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            Something else here
-                        </a>
-                        <a class="dropdown-item text-danger" href="#">
-                            Remove Data
-                        </a>
-                    </div>
-                </div>
+            <div class="modal-body">
+                <p>
+                    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+                </p>
             </div>
-            <div class="card-body">
-                <div class="chart-area">
-                    <canvas id="emailsCampaignChart">
-                    </canvas>
-                </div>
-                <div class="card-progress">
-                    <div class="progress-container">
-                        <span class="progress-badge">
-                            Delivery Rate
-                        </span>
-                        <div class="progress">
-                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" class="progress-bar" role="progressbar" style="width: 90%;">
-                                <span class="progress-value">
-                                    90%
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-container progress-success">
-                        <span class="progress-badge">
-                            Open Rate
-                        </span>
-                        <div class="progress">
-                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" class="progress-bar progress-bar-warning" role="progressbar" style="width: 60%;">
-                                <span class="progress-value">
-                                    60%
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-container progress-info">
-                        <span class="progress-badge">
-                            Click Rate
-                        </span>
-                        <div class="progress">
-                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" class="progress-bar progress-bar-warning" role="progressbar" style="width: 12%;">
-                                <span class="progress-value">
-                                    12%
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-container progress-warning">
-                        <span class="progress-badge">
-                            Hard Bounce
-                        </span>
-                        <div class="progress">
-                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" class="progress-bar progress-bar-warning" role="progressbar" style="width: 5%;">
-                                <span class="progress-value">
-                                    5%
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-container progress-danger">
-                        <span class="progress-badge">
-                            Spam Report
-                        </span>
-                        <div class="progress">
-                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" class="progress-bar progress-bar-warning" role="progressbar" style="width: 0.11%;">
-                                <span class="progress-value">
-                                    0.11%
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-footer">
-                <div class="stats">
-                    <i class="now-ui-icons arrows-1_refresh-69">
-                    </i>
-                    Just Updated
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <div class="card card-chart">
-            <div class="card-header">
-                <h5 class="card-category">
-                    Active Countries
-                </h5>
-                <h2 class="card-title">
-                    105
-                </h2>
-            </div>
-            <div class="card-body">
-                <div class="chart-area">
-                    <canvas id="activeCountries">
-                    </canvas>
-                </div>
-                <div class="map" id="worldMap">
-                </div>
-            </div>
-            <div class="card-footer">
-                <div class="stats">
-                    <i class="now-ui-icons ui-2_time-alarm">
-                    </i>
-                    Last 7 days
-                </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-info btn-round" data-dismiss="modal">Sounds good!</button>
             </div>
         </div>
     </div>
 </div>
+<!--  End Modal -->
 <div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">
-                    Best Selling Products
-                </h4>
+    <div class="col-lg-12 text-center">
+        <h4>
+            LISTA DE TRADERS
+        </h4>
+    </div>
+</div>
+<div class="row">
+    @forelse ($users as $user)
+    <div class="col-lg-2">
+        <div class="card card-user">
+            <div class="image">
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-shopping">
-                        <thead class="">
-                            <th class="text-center">
-                            </th>
-                            <th>
-                                Product
-                            </th>
-                            <th>
-                                Color
-                            </th>
-                            <th>
-                                Size
-                            </th>
-                            <th class="text-right">
-                                Price
-                            </th>
-                            <th class="text-right">
-                                Qty
-                            </th>
-                            <th class="text-right">
-                                Amount
-                            </th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="img-container">
-                                        <img alt="..." src="../assets/img/saint-laurent.jpg">
-                                        </img>
-                                    </div>
-                                </td>
-                                <td class="td-name">
-                                    <a href="#jacket">
-                                        Suede Biker Jacket
-                                    </a>
-                                    <br/>
-                                    <small>
-                                        by Saint Laurent
-                                    </small>
-                                </td>
-                                <td>
-                                    Black
-                                </td>
-                                <td>
-                                    M
-                                </td>
-                                <td class="td-number">
-                                    <small>
-                                        €
-                                    </small>
-                                    3,390
-                                </td>
-                                <td class="td-number">
-                                    1
-                                </td>
-                                <td class="td-number">
-                                    <small>
-                                        €
-                                    </small>
-                                    549
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="img-container">
-                                        <img alt="..." src="../assets/img/balmain.jpg">
-                                        </img>
-                                    </div>
-                                </td>
-                                <td class="td-name">
-                                    <a href="#pants">
-                                        Jersey T-Shirt
-                                    </a>
-                                    <br/>
-                                    <small>
-                                        by Balmain
-                                    </small>
-                                </td>
-                                <td>
-                                    Black
-                                </td>
-                                <td>
-                                    M
-                                </td>
-                                <td class="td-number">
-                                    <small>
-                                        €
-                                    </small>
-                                    499
-                                </td>
-                                <td class="td-number">
-                                    2
-                                </td>
-                                <td class="td-number">
-                                    <small>
-                                        €
-                                    </small>
-                                    998
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="img-container">
-                                        <img alt="..." src="../assets/img/prada.jpg">
-                                        </img>
-                                    </div>
-                                </td>
-                                <td class="td-name">
-                                    <a href="#nothing">
-                                        Slim-Fit Swim Short
-                                    </a>
-                                    <br/>
-                                    <small>
-                                        by Prada
-                                    </small>
-                                </td>
-                                <td>
-                                    Red
-                                </td>
-                                <td>
-                                    M
-                                </td>
-                                <td class="td-number">
-                                    <small>
-                                        €
-                                    </small>
-                                    200
-                                </td>
-                                <td class="td-number">
-                                    1
-                                </td>
-                                <td class="td-number">
-                                    <small>
-                                        €
-                                    </small>
-                                    799
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="5">
-                                </td>
-                                <td class="td-total">
-                                    Total
-                                </td>
-                                <td class="td-price">
-                                    <small>
-                                        €
-                                    </small>
-                                    2,346
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="author">
+                    <a href="{{ url('profile/'.$user->id) }}">
+                        <img alt="..." class="avatar border-gray" src="{{ asset('uidash/img/'.$user->profile_img) }}">
+                            <h5 class="title">
+                                {{ $user->name }}
+                            </h5>
+                        </img>
+                    </a>
+                    <p class="description font-weight-bold @if($user->reputation > 0) text-info @elseif($user->reputation < 0) text-danger @else text-muted @endif">
+                        {{ $user->reputation }}% Precisión
+                    </p>
                 </div>
             </div>
+            <hr>
+                <div class="button-container">
+                    <a class="btn btn-round btn-primary" href="javascript:void(0)" data-toggle="modal" data-target="#myModal">
+                        Seguir
+                    </a>
+                </div>
+            </hr>
         </div>
     </div>
+    @empty
+    <div class="col-lg-12">
+        <div class="alert alert-info alert-with-icon" data-notify="container">
+            <button aria-hidden="true" class="close" type="button">
+                <i class="now-ui-icons ui-1_simple-remove">
+                </i>
+            </button>
+            <span class="now-ui-icons ui-1_bell-53" data-notify="icon">
+            </span>
+            <span data-notify="message">
+                No hay usuarios para seguir
+            </span>
+        </div>
+    </div>
+    @endforelse
 </div>
 @endsection
