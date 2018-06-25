@@ -42,22 +42,23 @@ class FollowController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequest $request)
+    public function store(Request $request)
     {
-        $post = Post::create([
-            'title'       => $request->title,
-            'body'        => $request->body,
-            'category_id' => $request->category_id
+        Auth::user()->follows()->create([
+            'trader_id' => $request->user_id,
+            'percent_to_trader' => $request->invest
         ]);
 
-        $tagsId = collect($request->tags)->map(function($tag) {
-            return Tag::firstOrCreate(['name' => $tag])->id;
-        });
+        return response()->json([
+            'data' => [
+                'message' => 'Se ha seguido al usuario.',
+            ],
+        ]);
 
-        $post->tags()->attach($tagsId);
-        flash()->overlay('Post created successfully.');
-
-        return redirect('/admin/posts');
+        /*return response()->json([
+            'error' => true,
+            'message' => 'Wrong credentials!'
+        ])->setStatusCode(401);*/
     }
 
     /**

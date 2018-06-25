@@ -765,7 +765,16 @@ demo = {
     var cardStatsMiniLineColor = "#fff",
       cardStatsMiniDotColor = "#fff";
 
-    ctx = document.getElementById('activeUsers').getContext("2d");
+    ctx = document.getElementById('activeUsers');
+
+    if(null != ctx)
+    {
+      ctx = document.getElementById('activeUsers').getContext("2d");
+    }
+    else
+    {
+      return;
+    }
 
     gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
     gradientStroke.addColorStop(0, '#80b6f4');

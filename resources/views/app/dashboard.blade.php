@@ -79,7 +79,7 @@
     </div>
 </div>
 <!-- Classic Modal -->
-<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="myModal" role="dialog" tabindex="-1">
+<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="followModal" role="dialog" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header justify-content-center">
@@ -88,17 +88,72 @@
                     </i>
                 </button>
                 <h4 class="title title-up">
-                    Modal title
+                    Cuanto Invertira?
                 </h4>
             </div>
             <div class="modal-body">
-                <p>
-                    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
-                </p>
+                <div class="col-lg-12">
+                    <p class="font-weight-bold">
+                        Información del trader :
+                    </p>
+                    <p>
+                        <span class="font-weight-bold">
+                            Usuario :
+                        </span>
+                        <span class="user_name">
+                        </span>
+                    </p>
+                    <p>
+                        <span class="font-weight-bold">
+                            Precisión :
+                        </span>
+                        <span class="user_reputation">
+                        </span>
+                        %
+                    </p>
+                    <hr>
+                    <form class="form-horizontal form-confirm-follow" action="{{ url('app/follows') }}" method="POST">
+                        @csrf
+                        <input name="user_id" type="hidden" value=""/>
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">
+                                Balance ($)
+                            </label>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input class="form-control" name="balance" number="true" type="number" readonly="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">
+                                Invertir (%)
+                            </label>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input class="form-control" max="100" min="1" name="invest" number="true" type="number"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">
+                                Total ($)
+                            </label>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input class="form-control" name="total" number="true" type="number" readonly="true"  value="0" />
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
             </div>
             <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-info btn-round" data-dismiss="modal">Sounds good!</button>
+                <button class="btn btn-primary btn-round" type="submit">
+                    Confirmar
+                </button>
             </div>
+            </form>
         </div>
     </div>
 </div>
@@ -132,7 +187,7 @@
             </div>
             <hr>
                 <div class="button-container">
-                    <a class="btn btn-round btn-primary" href="javascript:void(0)" data-toggle="modal" data-target="#myModal">
+                    <a class="btn btn-round btn-primary btn-follow" data-target="#followModal" data-toggle="modal" data-user="{{ $user->id }}|{{ $user->name }}|{{ $user->reputation }}" href="javascript:void(0)">
                         Seguir
                     </a>
                 </div>

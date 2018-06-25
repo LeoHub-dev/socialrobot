@@ -24,7 +24,7 @@ Route::group(['prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']]
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('/orders', 'TradingHistoryController', ['only' => ['index','store']]);
     //Route::get('/orders/add', 'TradingHistoryController@add');
-    Route::resource('/follows', 'FollowController');
+    Route::resource('/follows', 'FollowController', ['only' => ['index','store']]);
     //Route::get('/follows/{user}/follow', 'FollowController@follow');
 
     Route::group(['middleware' => ['role:admin']], function () {
