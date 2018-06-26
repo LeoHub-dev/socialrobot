@@ -35,6 +35,9 @@ $(document).ready(function() {
 	    	else
 	    	{
 	    		alert('Hubo un error');
+	    		console.log(error);
+	    		console.log(xhr.responseJSON);
+
 	    	}
 	    });
 	});

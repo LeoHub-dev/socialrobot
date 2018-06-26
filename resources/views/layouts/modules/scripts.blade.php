@@ -28,8 +28,8 @@
 <script src="{{ asset('uidash/js/plugins/jquery-jvectormap.js') }}"></script>
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
 <script src="{{ asset('uidash/js/plugins/nouislider.min.js') }}"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE') }}"></script>
+<!--  Google Maps Plugin    
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE') }}"></script>-->
 <!-- Chart JS -->
 <script src="{{ asset('uidash/js/plugins/chartjs.min.js') }}"></script>
 <!--  Notifications Plugin    -->

@@ -11,8 +11,8 @@
                     </span>
                 </button>
             </div>
-            <a class="navbar-brand" href="#pablo">
-                Dashboard
+            <a class="navbar-brand" href="#">
+                <?= $title ?? '' ?>
             </a>
         </div>
         <button aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navigation" data-toggle="collapse" type="button">
@@ -38,7 +38,7 @@
             </form>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#pablo">
+                    <a class="nav-link" href="#">
                         <i class="now-ui-icons media-2_sound-wave">
                         </i>
                         <p>

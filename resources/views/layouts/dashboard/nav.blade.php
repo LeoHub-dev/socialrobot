@@ -33,22 +33,22 @@
                 <div class="collapse" id="collapseExample">
                     <ul class="nav">
                         <li>
-                            <a href="#">
+                            <a href="{{ route('profile') }}">
                                 <span class="sidebar-mini-icon">
                                     MP
                                 </span>
                                 <span class="sidebar-normal">
-                                    My Profile
+                                    Perfil
                                 </span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('profile.edit') }}">
                                 <span class="sidebar-mini-icon">
                                     EP
                                 </span>
                                 <span class="sidebar-normal">
-                                    Edit Profile
+                                    Editar Perfil
                                 </span>
                             </a>
                         </li>
@@ -72,7 +72,7 @@
                     <i class="now-ui-icons design_app">
                     </i>
                     <p>
-                        Dashboard
+                        Inicio
                     </p>
                 </a>
             </li>
@@ -81,7 +81,16 @@
                     <i class="now-ui-icons ui-2_favourite-28">
                     </i>
                     <p>
-                        Follows
+                        Siguiendo
+                    </p>
+                </a>
+            </li>
+            <li class="{{ setActive('app/orders') }}">
+                <a href="{{ route('orders.index') }}">
+                    <i class="now-ui-icons shopping_cart-simple">
+                    </i>
+                    <p>
+                        Ordenes
                     </p>
                 </a>
             </li>

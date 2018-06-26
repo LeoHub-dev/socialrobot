@@ -31,7 +31,7 @@
                         @forelse ($follows as $follow)
                         <tr>
                             <td>
-                                {{ $follow->user->name }}
+                                {{ $follow->trader->name }}
                             </td>
                             <td>
                                 {{ $follow->percent_to_trader }}
@@ -49,7 +49,7 @@
                         @empty
                         <tr>
                             <td colspan="5">
-                                No tienes seguidores
+                                No sigues a nadie
                             </td>
                         </tr>
                         @endforelse

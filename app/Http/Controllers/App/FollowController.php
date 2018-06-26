@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 
 class FollowController extends Controller
 {
+    
+
     /**
      * Display a listing of the resource.
      *
@@ -18,10 +20,11 @@ class FollowController extends Controller
      */
     public function index()
     {
+        $title = 'Seguimiento';
         $follows = Auth::user()->follows()->with(['user'])->paginate(10);
         $followers = Auth::user()->followers()->with(['user'])->paginate(10);
 
-        return view('app.follows.index', compact('follows','followers'));
+        return view('app.follows.index', compact('follows','followers','title'));
     }
 
 
@@ -33,6 +36,19 @@ class FollowController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'user_id' => 'required|integer|exists:users,id',
+            'invest' => 'required|integer',
+        ]);
+
+        if(Auth::user()->follows()->where('trader_id',$request->user_id)->exists())
+        {
+            return response()->json([
+                'error' => true,
+                'message' => 'Ya sigues a este usuario'
+            ])->setStatusCode(422);
+        }
+
         Auth::user()->follows()->create([
             'trader_id' => $request->user_id,
             'percent_to_trader' => $request->invest
@@ -44,10 +60,6 @@ class FollowController extends Controller
             ],
         ]);
 
-        /*return response()->json([
-            'error' => true,
-            'message' => 'Error siguiendo'
-        ])->setStatusCode(400);*/
     }
 
     /**

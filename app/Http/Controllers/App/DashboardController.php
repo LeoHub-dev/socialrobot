@@ -9,14 +9,18 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
+	
+
     public function index(Request $request)
     {
+    	$title = 'Inicio';
+
     	$users = User::where('users.id', '!=', Auth::id())->orderBy('reputation','desc')->paginate(10)->filter(function($user)
     	{
     		return !$user->isFollowedBy(Auth::user());
 		});
 
-        return view('app.dashboard', compact('users'));
+        return view('app.dashboard', compact('users','title'));
     }
 
 }

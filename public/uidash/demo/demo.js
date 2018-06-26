@@ -672,7 +672,18 @@ demo = {
       }
     };
 
-    var ctx = document.getElementById('bigDashboardChart').getContext("2d");
+    var ctx = document.getElementById('bigDashboardChart');
+
+    if(null != ctx)
+    {
+      ctx = document.getElementById('bigDashboardChart').getContext("2d");
+    }
+    else
+    {
+      return;
+    }
+
+    
 
     var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
     gradientStroke.addColorStop(0, '#80b6f4');

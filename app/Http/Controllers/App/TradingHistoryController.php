@@ -18,9 +18,9 @@ class TradingHistoryController extends Controller
      */
     public function index()
     {
-        $posts = TradingHistory::with(['user'])->paginate(10);
+        $orders = Auth::user()->tradinghistories()->paginate(10);
 
-        return view('admin.posts.index', compact('posts'));
+        return view('app.orders.index', compact('orders'));
     }
 
     /**
