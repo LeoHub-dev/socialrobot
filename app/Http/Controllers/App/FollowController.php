@@ -18,23 +18,12 @@ class FollowController extends Controller
      */
     public function index()
     {
-        $follows = Auth::user()->followers()->with(['user'])->paginate(10);
+        $follows = Auth::user()->follows()->with(['user'])->paginate(10);
+        $followers = Auth::user()->followers()->with(['user'])->paginate(10);
 
-        return view('app.follows.index', compact('follows'));
+        return view('app.follows.index', compact('follows','followers'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $categories = Category::pluck('name', 'id')->all();
-        $tags = Tag::pluck('name', 'name')->all();
-
-        return view('admin.posts.create', compact('categories', 'tags'));
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -57,8 +46,8 @@ class FollowController extends Controller
 
         /*return response()->json([
             'error' => true,
-            'message' => 'Wrong credentials!'
-        ])->setStatusCode(401);*/
+            'message' => 'Error siguiendo'
+        ])->setStatusCode(400);*/
     }
 
     /**

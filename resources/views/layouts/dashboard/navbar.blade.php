@@ -81,15 +81,15 @@
                         </p>
                     </a>
                     <div aria-labelledby="navbarDropdownUserLink" class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#">
+                            Balance : 
+                        </a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            {{ __('Desconectarse') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                        <a class="dropdown-item" href="#">
-                            Another action
-                        </a>
                         <a class="dropdown-item" href="#">
                             Something else here
                         </a>

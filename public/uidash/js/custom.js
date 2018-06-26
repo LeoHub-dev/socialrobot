@@ -11,24 +11,43 @@ $(document).ready(function() {
 	});
 
 	$('.form-confirm-follow').on('submit', function(e){
-		console.log("test");
+		
 		e.preventDefault();
-		var data = sendForm($(this));
-		console.log(data);
-		console.log(data.responseJSON);
-		console.log(data.response);
-		console.log(data.data);
-		console.log(data.getResponse());
+
+		var modal = $('.modal.fade.show');
+	
+		var user_id = $(modal).find('input[name=user_id]').val();
+
+		$.post($(this).attr('action'), $(this).serialize(), function(response) {
+
+			modal.modal('hide');
+
+			$('#user-'+user_id).find('.btn-follow').html('<i class="now-ui-icons ui-2_favourite-28"></i> Siguiendo');
+
+			$('#user-'+user_id).fadeOut("slow");
+	
+	    },"json").fail(function(xhr, status, error) {
+
+	    	if(xhr.responseJSON.error)
+	    	{
+	    		errorModal(xhr.responseJSON.message);
+	    	}
+	    	else
+	    	{
+	    		alert('Hubo un error');
+	    	}
+	    });
 	});
-
-
-
 
 })
 
-function sendForm(form)
+function errorModal(error)
 {
-	var data = $.post(form.attr('action'), form.serialize(), null,"json");
-
-    return data;
+	var modal = $('.modal.fade.show');
+	if(modal.length > 0) 
+	{
+		modal.modal('hide');
+	}
+	$('#errorModal').find('.errorText').html(error);
+	$('#errorModal').modal('show');
 }

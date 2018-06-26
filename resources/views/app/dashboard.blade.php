@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.dashboard',['graph' => true])
 
 @section('content')
 <div class="row">
@@ -167,7 +167,7 @@
 </div>
 <div class="row">
     @forelse ($users as $user)
-    <div class="col-lg-2">
+    <div class="col-lg-2" id="user-{{ $user->id }}">
         <div class="card card-user">
             <div class="image">
             </div>

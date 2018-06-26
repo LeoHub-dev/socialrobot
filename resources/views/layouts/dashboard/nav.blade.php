@@ -3,11 +3,11 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
     <div class="logo">
-        <a class="simple-text logo-mini" href="http://www.creative-tim.com">
-            CT
+        <a class="simple-text logo-mini" href="#">
+            SB
         </a>
-        <a class="simple-text logo-normal" href="http://www.creative-tim.com">
-            Creative Tim
+        <a class="simple-text logo-normal" href="#">
+            Social Bot
         </a>
         <div class="navbar-minimize">
             <button class="btn btn-simple btn-icon btn-neutral btn-round" id="minimizeSidebar">
@@ -67,8 +67,8 @@
             </div>
         </div>
         <ul class="nav">
-            <li class="active">
-                <a href="../examples/dashboard.html">
+            <li class="{{ setActive('app/dashboard') }}">
+                <a href="{{ route('dashboard') }}">
                     <i class="now-ui-icons design_app">
                     </i>
                     <p>
@@ -76,12 +76,12 @@
                     </p>
                 </a>
             </li>
-            <li>
-                <a href="../examples/widgets.html">
-                    <i class="now-ui-icons objects_diamond">
+            <li class="{{ setActive('app/follows') }}">
+                <a href="{{ route('follows.index') }}">
+                    <i class="now-ui-icons ui-2_favourite-28">
                     </i>
                     <p>
-                        Widgets
+                        Follows
                     </p>
                 </a>
             </li>
