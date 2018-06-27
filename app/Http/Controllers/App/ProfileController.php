@@ -41,20 +41,15 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
-        $post->update([
-            'title'       => $request->title,
-            'body'        => $request->body,
-            'category_id' => $request->category_id
-        ]);
+        $user = Auth::user();
 
-        $tagsId = collect($request->tags)->map(function($tag) {
-            return Tag::firstOrCreate(['name' => $tag])->id;
-        });
+        $user->name = $request->name;
 
-        $post->tags()->sync($tagsId);
-        flash()->overlay('Post updated successfully.');
+        $user->save();
 
-        return redirect('/admin/posts');
+        flash()->overlay('Editado');
+
+        return redirect('app/profile/edit')->with('message', 'Editado');
     }
 
 

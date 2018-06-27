@@ -24,6 +24,7 @@ Route::group(['prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']]
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
     Route::get('/profile', 'ProfileController@index')->name('profile');
     Route::get('/profile/edit', 'ProfileController@edit')->name('profile.edit');
+    Route::post('/profile/update', 'ProfileController@update')->name('profile.update');
     Route::resource('/orders', 'TradingHistoryController', ['only' => ['index','store']]);
     Route::resource('/follows', 'FollowController', ['only' => ['index','store']]);
 

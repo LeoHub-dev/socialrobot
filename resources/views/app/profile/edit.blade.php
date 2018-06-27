@@ -4,14 +4,15 @@
 <div class="row">
     <div class="col-md-8">
         <div class="card">
+            <form action="{{ route('profile.update') }}" method="POST">
+                @csrf
             <div class="card-header">
                 <h5 class="title">
                     Edit Profile
                 </h5>
             </div>
             <div class="card-body">
-                <form action="{{ route('profile.update') }}" method="POST">
-                @csrf
+                
                 <div class="row">
                     <div class="col-md-5 pr-1">
                         <div class="form-group">
@@ -28,9 +29,16 @@
                             <label>
                                 Nombre
                             </label>
-                            <input class="form-control" placeholder="Company" type="text" value="{{ Auth::user()->name }}">
+                            <input class="form-control" name="name" placeholder="Nombre" type="text" value="{{ Auth::user()->name }}">
                             </input>
                         </div>
+                    </div>
+                    <div class="col-md-12"> 
+                        @if(session()->has('message'))
+                            <div class="alert alert-success">
+                                {{ session()->get('message') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -38,8 +46,9 @@
                 <button class="btn btn-primary btn-round" type="submit">
                     Editar
                 </button>
-            </form>
+            
             </div>
+            </form>
         </div>
     </div>
     <div class="col-md-4">
