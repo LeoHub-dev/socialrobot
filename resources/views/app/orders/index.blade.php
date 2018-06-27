@@ -1,67 +1,110 @@
 @extends('layouts.dashboard',['graph' => false])
 
 @section('content')
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-header">
-                Ordenes
+<div class="row ">
+    <div class="col-md-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">
+                        Crear Orden
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+
+                            <div class="col-md-5 pr-1">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">
+                                        Email address
+                                    </label>
+                                    <input class="form-control" placeholder="Email" type="email" value="{{ Auth::user()->email }}" disabled="true">
+                                    </input>
+                                </div>
+                            </div>
+                
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>
+                                        Nombre
+                                    </label>
+                                    <input class="form-control" placeholder="Company" type="text" value="{{ Auth::user()->name }}">
+                                    </input>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary btn-round" type="submit">
+                        Enviar
+                    </button>
+                </form>
+                </div>
             </div>
-            <div class="card-body">
-                <table class="table">
-                    <thead>
-                        <tr>
+        </div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    Ordenes
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
 
-                            <th>
-                                Moneda
-                            </th>
-                            <th>
-                                Monto
-                            </th>
-                            <th>
-                                Resultado
-                            </th>
-                            <th>
-                                Fecha
-                            </th>
-                            <th>
-                                Action
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                                <th>
+                                    Moneda
+                                </th>
+                                <th>
+                                    Monto
+                                </th>
+                                <th>
+                                    Resultado
+                                </th>
+                                <th>
+                                    Fecha
+                                </th>
+                                <th>
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                        @forelse ($orders as $order)
-                        <tr>
-                            <td>
-                                {{ $order->coins }}
-                            </td>
-                            <td>
-                                {{ $order->amount }}
-                            </td>
-                            <td>
-                                {{ $order->result }}
-                            </td>
-                            <td>
-                                {{ $order->created_at }}
-                            </td>
-                            
-                            <td>
-                                <a href="{{ url("/admin/posts/{$order->id}") }}" class="btn btn-xs btn-success">Show</a>
-                                <a href="{{ url("/admin/posts/{$order->id}/edit") }}" class="btn btn-xs btn-info">Edit</a>
-                                <a href="{{ url("/admin/posts/{$order->id}") }}" data-method="DELETE" data-token="{{ csrf_token() }}" data-confirm="Are you sure?" class="btn btn-xs btn-danger">Delete</a>
-                            </td>
-                        </tr>
-                        @empty
-                        <tr>
-                            <td colspan="5">
-                                No has realizado alguna orden
-                            </td>
-                        </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-                {!! $orders->links() !!}
+                            @forelse ($orders as $order)
+                            <tr>
+                                <td>
+                                    {{ $order->coins }}
+                                </td>
+                                <td>
+                                    {{ $order->amount }}
+                                </td>
+                                <td>
+                                    {{ $order->result }}
+                                </td>
+                                <td>
+                                    {{ $order->created_at }}
+                                </td>
+                                
+                                <td>
+                                    <a href="{{ url("/admin/posts/{$order->id}") }}" class="btn btn-xs btn-success">Show</a>
+                                    <a href="{{ url("/admin/posts/{$order->id}/edit") }}" class="btn btn-xs btn-info">Edit</a>
+                                    <a href="{{ url("/admin/posts/{$order->id}") }}" data-method="DELETE" data-token="{{ csrf_token() }}" data-confirm="Are you sure?" class="btn btn-xs btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                            @empty
+                            <tr>
+                                <td colspan="5">
+                                    No has realizado alguna orden
+                                </td>
+                            </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                    {!! $orders->links() !!}
+                </div>
             </div>
         </div>
     </div>

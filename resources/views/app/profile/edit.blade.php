@@ -10,30 +10,35 @@
                 </h5>
             </div>
             <div class="card-body">
-                <form>
-                    <div class="row">
-
-                        <div class="col-md-5 pr-1">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">
-                                    Email address
-                                </label>
-                                <input class="form-control" placeholder="Email" type="email" value="{{ Auth::user()->email }}" disabled="true">
-                                </input>
-                            </div>
-                        </div>
-            
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>
-                                    Nombre
-                                </label>
-                                <input class="form-control" placeholder="Company" type="text" value="{{ Auth::user()->name }}">
-                                </input>
-                            </div>
+                <form action="{{ route('profile.update') }}" method="POST">
+                @csrf
+                <div class="row">
+                    <div class="col-md-5 pr-1">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">
+                                Email address
+                            </label>
+                            <input class="form-control" placeholder="Email" type="email" value="{{ Auth::user()->email }}" disabled="true">
+                            </input>
                         </div>
                     </div>
-                </form>
+        
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>
+                                Nombre
+                            </label>
+                            <input class="form-control" placeholder="Company" type="text" value="{{ Auth::user()->name }}">
+                            </input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary btn-round" type="submit">
+                    Editar
+                </button>
+            </form>
             </div>
         </div>
     </div>
