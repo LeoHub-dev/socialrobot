@@ -47,8 +47,6 @@ class TradingHistoryController extends Controller
             'coins' => $request->coins,
             'amount' => $request->amount
         ]);
-        
-        flash()->overlay('Comment successfully created');
 
         return redirect("/app/dashboard");
 

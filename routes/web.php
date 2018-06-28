@@ -28,6 +28,9 @@ Route::group(['prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']]
     Route::resource('/orders', 'TradingHistoryController', ['only' => ['index','store']]);
     Route::resource('/follows', 'FollowController', ['only' => ['index','store']]);
 
+
+    Route::get('/history', 'ActionHistoryController@index')->name('history');
+
     //Route::get('/orders/add', 'TradingHistoryController@add');
 
     Route::group(['middleware' => ['role:admin']], function () {
