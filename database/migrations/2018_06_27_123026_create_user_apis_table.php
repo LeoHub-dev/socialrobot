@@ -14,11 +14,15 @@ class CreateUserApisTable extends Migration
     public function up()
     {
         Schema::create('user_apis', function (Blueprint $table) {
-            $table->string('name');
+            $table->increments('id');
+            $table->string('name')->nullable();
+            $table->string('secret_key');
+            $table->string('pub_key');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('api_category')->unsigned();
-            $table->foreign('api_category')->references('id')->on('api_category');
+            $table->foreign('api_category')->references('id')->on('apis');
+            $table->integer('active')->unsigned();
             $table->timestamps();
         });
     }

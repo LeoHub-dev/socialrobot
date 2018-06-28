@@ -28,7 +28,7 @@ class TradingHistory extends Model
                 if($trading_loop->result == 1){
                     $trading_total++;
                 }
-                else if($trading_loop->result == 2){
+                else if($trading_loop->result == 0){
                     $trading_total--;
                 }
 
@@ -71,7 +71,7 @@ class TradingHistory extends Model
                 if($trading->result == 1){
                     $trading_total++;
                 }
-                else if($trading->result == 2){
+                else if($trading->result == 0){
                     $trading_total--;
                 }
 

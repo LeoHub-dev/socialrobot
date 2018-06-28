@@ -25,6 +25,10 @@ Route::group(['prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']]
     Route::get('/profile', 'ProfileController@index')->name('profile');
     Route::get('/profile/edit', 'ProfileController@edit')->name('profile.edit');
     Route::post('/profile/update', 'ProfileController@update')->name('profile.update');
+    Route::get('/settings', 'SettingsController@index')->name('settings');
+    //Route::get('/settings/edit', 'SettingsController@edit')->name('settings.edit');
+    Route::post('/settings/store', 'SettingsController@store')->name('settings.store');
+
     Route::resource('/orders', 'TradingHistoryController', ['only' => ['index','store']]);
     Route::resource('/follows', 'FollowController', ['only' => ['index','store']]);
 

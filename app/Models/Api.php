@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-use App\User;
+use App\UserApi;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,8 +10,8 @@ class Api extends Model
     //
     protected $fillable = ['name'];
 
-    public function users()
+    public function api()
     {
-        return $this->belongsToMany(User::class)->withTimestamps();
+        return $this->belongsToMany(UserApi::class);
     }
 }

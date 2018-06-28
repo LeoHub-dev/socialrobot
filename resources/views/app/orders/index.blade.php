@@ -5,43 +5,57 @@
     <div class="col-md-4">
         <div class="col-md-12">
             <div class="card">
+                <form>
                 <div class="card-header">
                     <h5 class="title">
                         Crear Orden
                     </h5>
                 </div>
                 <div class="card-body">
-                    <form>
-                        <div class="row">
+                    
+                    <div class="row">
 
-                            <div class="col-md-5 pr-1">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">
-                                        Email address
-                                    </label>
-                                    <input class="form-control" placeholder="Email" type="email" value="{{ Auth::user()->email }}" disabled="true">
-                                    </input>
-                                </div>
-                            </div>
-                
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>
-                                        Nombre
-                                    </label>
-                                    <input class="form-control" placeholder="Company" type="text" value="{{ Auth::user()->name }}">
-                                    </input>
-                                </div>
+                        <div class="col-md-5 pr-1">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">
+                                    Email address
+                                </label>
+                                <input class="form-control" placeholder="Email" type="email" value="{{ Auth::user()->email }}" disabled="true">
+                                </input>
                             </div>
                         </div>
+            
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>
+                                    Nombre
+                                </label>
+                                <input class="form-control" placeholder="Company" type="text" value="{{ Auth::user()->name }}">
+                                </input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12"> 
+                        @if(session()->has('message'))
+                            <div class="alert alert-success">
+                                {{ session()->get('message') }}
+                            </div>
+                        @endif
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger">
+                              <span>{{ $error }}</span>
+                            </div>
+                        @endforeach
+                    </div>
                     
                 </div>
                 <div class="card-footer">
                     <button class="btn btn-primary btn-round" type="submit">
                         Enviar
                     </button>
-                </form>
                 </div>
+                </form>
             </div>
         </div>
         <div class="col-md-12">

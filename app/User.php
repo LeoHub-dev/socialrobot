@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Models\Api;
+use App\Models\UserApi;
 use App\Models\BalancePercent;
 use App\Models\Follow;
 use App\Models\TradingHistory;
@@ -97,7 +97,7 @@ class User extends Authenticatable
 
     public function apis()
     {
-        return $this->belongsToMany(Api::class)->withTimestamps();
+        return $this->hasMany(UserApi::class, 'user_id', 'id');
     }
 
 

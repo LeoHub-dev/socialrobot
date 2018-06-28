@@ -35,7 +35,7 @@
                         <li>
                             <a href="{{ route('profile') }}">
                                 <span class="sidebar-mini-icon">
-                                    MP
+                                    P
                                 </span>
                                 <span class="sidebar-normal">
                                     Perfil
@@ -53,12 +53,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('settings') }}">
                                 <span class="sidebar-mini-icon">
-                                    S
+                                    C
                                 </span>
                                 <span class="sidebar-normal">
-                                    Settings
+                                    Configuración
                                 </span>
                             </a>
                         </li>
