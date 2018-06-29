@@ -9,6 +9,7 @@ use App\Models\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Validator;
 
 class SettingsController extends Controller
 {
@@ -23,18 +24,24 @@ class SettingsController extends Controller
 
         $apis_category = Api::all();
         $apis = Auth::user()->apis()->with('api')->paginate(10);
+        $balances = Auth::user()->balancepercents()->paginate(10);
 
-        return view('app.settings.index',compact('apis','apis_category'));
+        return view('app.settings.index',compact('apis','apis_category','balances'));
     }
 
-    public function store(Request $request)
+    public function storeApi(Request $request)
     {
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             'name' => 'string',
             'secret_key' => 'required|string|unique:user_apis,secret_key',
             'pub_key' => 'required|string|unique:user_apis,pub_key',
-            'platform' => 'required|integer|exists:apis,id',
+            'platform' => 'required|integer|exists:apis,id'
         ]);
+
+        if ($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator, 'apiErrors');
+        }
 
         Auth::user()->apis()->create([
             'name' => $request->name,
@@ -43,7 +50,32 @@ class SettingsController extends Controller
             'api_category' => $request->platform
         ]);
 
-        return redirect('app/settings')->with('message', 'Llave agregada');
+        return redirect('app/settings')->with('message_api', 'Llave agregada');
+    }
+
+    public function storeBalance(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'string',
+            'secret_key' => 'required|string|unique:user_apis,secret_key',
+            'pub_key' => 'required|string|unique:user_apis,pub_key',
+            'platform' => 'required|integer|exists:apis,id',
+        ]);
+
+        if ($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator, 'balanceErrors');
+        }
+
+
+        Auth::user()->apis()->create([
+            'name' => $request->name,
+            'secret_key' => $request->secret_key,
+            'pub_key' => $request->pub_key,
+            'api_category' => $request->platform
+        ]);
+
+        return redirect('app/settings')->with('message_balance', 'Llave agregada');
     }
 
     /**

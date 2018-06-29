@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     @include('layouts.modules.head')
+
+    
+
+
   
     <div aria-labelledby="myModalLabel" class="modal fade modal-mini modal-primary" id="errorModal" role="dialog" tabindex="-1">
         <div class="modal-dialog">
@@ -41,6 +45,7 @@
                 @includeWhen(!$graph, 'layouts.dashboard.dashnormal')
 
                 <div class="content">
+                    @include('flash::message')
                     @yield('content')
                 </div>
                 @include('layouts.modules.footer')
@@ -56,5 +61,8 @@
 
             });
         </script>
+        <script>
+        $('#flash-overlay-modal').modal();
+    </script>
     </body>
 </html>

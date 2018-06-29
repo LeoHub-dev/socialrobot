@@ -49,9 +49,13 @@ class FollowController extends Controller
             ])->setStatusCode(422);
         }
 
+        $balance = Auth::user()->balancepercents()->where('active',1)->first();
+
         Auth::user()->follows()->create([
             'trader_id' => $request->user_id,
-            'percent_to_trader' => $request->invest
+            'percent_to_trader' => $request->invest,
+            'base_balance' => 0,
+            'actual_balance' => 0
         ]);
 
         return response()->json([
