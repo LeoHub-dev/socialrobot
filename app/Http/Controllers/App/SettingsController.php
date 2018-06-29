@@ -56,10 +56,7 @@ class SettingsController extends Controller
     public function storeBalance(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'string',
-            'secret_key' => 'required|string|unique:user_apis,secret_key',
-            'pub_key' => 'required|string|unique:user_apis,pub_key',
-            'platform' => 'required|integer|exists:apis,id',
+            'percent_to_use' => 'required|integer',
         ]);
 
         if ($validator->fails())
@@ -68,14 +65,11 @@ class SettingsController extends Controller
         }
 
 
-        Auth::user()->apis()->create([
-            'name' => $request->name,
-            'secret_key' => $request->secret_key,
-            'pub_key' => $request->pub_key,
-            'api_category' => $request->platform
+        Auth::user()->balancepercents()->create([
+            'percent_to_use' => $request->percent_to_use
         ]);
 
-        return redirect('app/settings')->with('message_balance', 'Llave agregada');
+        return redirect('app/settings')->with('message_balance', 'Balance Asignado');
     }
 
     /**
