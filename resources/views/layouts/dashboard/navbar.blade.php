@@ -37,18 +37,20 @@
                 </div>
             </form>
             <ul class="navbar-nav">
+                @if(Auth::user()->getBalance())
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="javascript:void(0);">
                         <i class="now-ui-icons business_bank">
                         </i>
                         <p>Balance (BTC): {{ number_format(Auth::user()->getBalance()->amount_btc,8) }}</p>
                     </a>
                 </li>
+                @endif
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="javascript:void(0);">
                         <i class="now-ui-icons business_bank">
                         </i>
-                        <p>Wallet Balance (USD): {{ Auth::user()->balance }}</p>
+                        <p>Wallet Balance (USD): {{ Auth::user()->wallet }}</p>
                     </a>
                 </li>
                 <li class="nav-item dropdown">

@@ -94,6 +94,15 @@
                     </p>
                 </a>
             </li>
+            <li class="{{ setActive('app/payments') }}">
+                <a href="{{ route('payments') }}">
+                    <i class="now-ui-icons business_money-coins">
+                    </i>
+                    <p>
+                        Pagos
+                    </p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

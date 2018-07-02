@@ -21,6 +21,8 @@ Route::group(['prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']]
 	    return redirect('/app/dashboard');
 	});
 
+    Route::get('/payments', 'PaymentController@index')->name('payments');
+
     Route::get('/settings', 'SettingsController@index')->name('settings');
     Route::post('/settings/storeApi', 'SettingsController@storeApi')->name('settings.storeApi');
     Route::post('/settings/storeBalance', 'SettingsController@storeBalance')->name('settings.storeBalance')->middleware('checkApi');

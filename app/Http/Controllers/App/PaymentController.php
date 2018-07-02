@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class ProfileController extends Controller
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
