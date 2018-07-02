@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
     @include('layouts.modules.head')
 
-    
-
-
-  
     <div aria-labelledby="myModalLabel" class="modal fade modal-mini modal-primary" id="errorModal" role="dialog" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -52,17 +49,9 @@
             </div>
         </div>
         @include('layouts.modules.scripts')
+        @stack('extra_scripts')
         <script>
-            $(document).ready(function() {
-              // Javascript method's body can be found in assets/js/demos.js
-              demo.initDashboardPageCharts();
-
-              demo.initVectorMap();
-
-            });
+            $('#flash-overlay-modal').modal();
         </script>
-        <script>
-        $('#flash-overlay-modal').modal();
-    </script>
     </body>
 </html>

@@ -90,6 +90,11 @@ class User extends Authenticatable
         return !! $this->followers()->where('user_id', $user->id)->count();
     }
 
+    public function getBalance()
+    {
+        return $this->balancepercents()->where('active', true)->first();
+    }
+
     public function invoices()
     {
         return $this->hasMany(Invoice::class);

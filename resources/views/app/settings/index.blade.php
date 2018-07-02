@@ -110,7 +110,7 @@
                             </thead>
                             <tbody>
 
-                                @forelse ($apis as $api)
+                                @forelse ($apis_list as $api)
                                 <tr>
                                     <td>
                                         {{ $api->pub_key }}
@@ -123,9 +123,7 @@
                                     </td>
                                     
                                     <td>
-                                        <a href="{{ url("/admin/posts/{$api->id}") }}" class="btn btn-xs btn-success">Show</a>
-                                        <a href="{{ url("/admin/posts/{$api->id}/edit") }}" class="btn btn-xs btn-info">Edit</a>
-                                        <a href="{{ url("/admin/posts/{$api->id}") }}" data-method="DELETE" data-token="{{ csrf_token() }}" data-confirm="Are you sure?" class="btn btn-xs btn-danger">Delete</a>
+                                        @if(!$api->active)<a href="{{ url("/admin/posts/{$api->id}") }}" class="btn btn-xs btn-success">Active</a>@else <font color="green">Activa</font> @endif
                                     </td>
                                 </tr>
                                 @empty
@@ -138,7 +136,7 @@
                             </tbody>
                         </table>
                     </div>
-                    {!! $apis->links() !!}
+                    {!! $apis_list->links() !!}
                 </div>
             </div>
         </div>
@@ -146,8 +144,8 @@
     <div class="col-md-6">
         <div class="col-md-12">
             
-            <div class="card @if(!$apis->count()) __disabled @endif">
-                @if(!$apis->count())
+            <div class="card @if(!$actived_api) __disabled @endif">
+                @if(!$actived_api)
                 <div class="disabled-container text-center">
                     <div class="icon">
                         <i class="now-ui-icons ui-1_simple-remove"></i>
@@ -167,9 +165,9 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">
-                                    Balance en Bittrex
+                                    Balance en Bittrex (BTC)
                                 </label>
-                                <input class="form-control" placeholder="Balance Bittrex" type="text" name="name" disabled="true" required>
+                                <input id="balance_available" class="form-control" placeholder="Balance Bittrex" type="text" name="name" disabled="true" value="{{ isset($balance) ? number_format($balance->result->Available,8) : '' }}" required>
                                 </input>
                             </div>
                         </div>
@@ -179,7 +177,7 @@
                                 <label for="exampleInputEmail1">
                                     Invertir (en %)
                                 </label>
-                                <input class="form-control" placeholder="Cuanto invertir en %" type="text" name="percent_to_use">
+                                <input class="form-control balance_calculator" placeholder="Cuanto invertir en %" type="number" min="1" max="100" name="percent_to_use">
                                 </input>
                             </div>
                         </div>
@@ -187,12 +185,24 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">
-                                    Balance neto a Invertir
+                                    Balance neto a Invertir (BTC)
                                 </label>
-                                <input class="form-control" placeholder="Balance neto" type="text" disabled="true">
+                                <input id="balance_invest_btc" class="form-control" placeholder="Balance neto" type="text" disabled="true">
                                 </input>
                             </div>
                         </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">
+                                    Balance neto a Invertir (usd)
+                                </label>
+                                <input id="balance_invest_usd" class="form-control" placeholder="Balance neto" type="text" disabled="true" min="1">
+                                </input>
+                            </div>
+                        </div>
+
+                        <input id="usd_price" type="hidden" value="{{ $btc_price->result->Last }}">
 
                         <div class="col-md-12"> 
                             @if(session()->has('message_balance'))
@@ -218,8 +228,8 @@
             </div>
         </div>
         <div class="col-md-12">
-            <div class="card @if(!$apis->count()) __disabled @endif"">
-                @if(!$apis->count())
+            <div class="card @if(!$actived_api) __disabled @endif"">
+                @if(!$actived_api)
                 <div class="disabled-container text-center">
                     <div class="icon">
                         <i class="now-ui-icons ui-1_simple-remove"></i>
@@ -243,31 +253,28 @@
                                         Inversión ($)
                                     </th>
                                     <th>
-                                        Fecha
+                                        Inversión (BTC)
                                     </th>
                                     <th>
-                                        Action
+                                        Fecha
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
 
-                                @forelse ($balances as $balance)
+                                @forelse ($balances_list as $balance)
                                 <tr>
                                     <td>
                                         {{ $balance->percent_to_use }}
                                     </td>
                                     <td>
-                                        {{ $balance->amount }}
+                                        {{ number_format($balance->amount_usd,8) }}
+                                    </td>
+                                    <td>
+                                        {{ number_format($balance->amount_btc,8) }}
                                     </td>
                                     <td>
                                         {{ $balance->created_at }}
-                                    </td>
-                                    
-                                    <td>
-                                        <a href="{{ url("/admin/posts/{$balance->id}") }}" class="btn btn-xs btn-success">Show</a>
-                                        <a href="{{ url("/admin/posts/{$balance->id}/edit") }}" class="btn btn-xs btn-info">Edit</a>
-                                        <a href="{{ url("/admin/posts/{$balance->id}") }}" data-method="DELETE" data-token="{{ csrf_token() }}" data-confirm="Are you sure?" class="btn btn-xs btn-danger">Delete</a>
                                     </td>
                                 </tr>
                                 @empty
@@ -280,10 +287,27 @@
                             </tbody>
                         </table>
                     </div>
-                    {!! $balances->links() !!}
+                    {!! $balances_list->links() !!}
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+@push('extra_scripts')
+<script type="text/javascript">
+    $('.balance_calculator').on('input', function(e) { 
+
+        var balance_invest_percent = $(this).val();
+        var balance_available = $('#balance_available').val();
+        var usd_price = $('#usd_price').val();
+
+        var balance_invest_btc = (balance_available * balance_invest_percent) / 100;
+        var balance_invest_usd = balance_invest_btc * usd_price;
+
+        $('#balance_invest_btc').val(parseFloat(balance_invest_btc).toFixed(8));
+        $('#balance_invest_usd').val(balance_invest_usd);
+    });
+</script>
+@endpush

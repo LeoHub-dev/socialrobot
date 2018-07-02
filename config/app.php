@@ -163,6 +163,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Messerli90\Bittrex\BittrexServiceProvider::class,
 
     ],
 
@@ -216,6 +217,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Bittrex' => \Messerli90\Bittrex\Facades\Bittrex::class,
 
     ],
 

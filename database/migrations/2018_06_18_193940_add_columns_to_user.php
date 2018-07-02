@@ -14,6 +14,7 @@ class AddColumnsToUser extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->integer('wallet')->default(0);
             $table->integer('reputation')->default(0);
             $table->string('profile_img')->default('placeholder.jpg');
         });

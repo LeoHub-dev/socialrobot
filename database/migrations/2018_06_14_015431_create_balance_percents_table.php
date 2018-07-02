@@ -16,7 +16,9 @@ class CreateBalancePercentsTable extends Migration
         Schema::create('balance_percents', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->float('amount', 8, 2);
+            $table->float('amount_base', 8, 8);
+            $table->float('amount_btc', 8, 8);
+            $table->float('amount_usd', 8, 8);
             $table->integer('percent_to_use');
             $table->boolean('active')->default(true);
             $table->foreign('user_id')->references('id')->on('users');

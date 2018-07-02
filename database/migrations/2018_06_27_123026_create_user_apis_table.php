@@ -22,7 +22,7 @@ class CreateUserApisTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('api_category')->unsigned();
             $table->foreign('api_category')->references('id')->on('apis');
-            $table->integer('active')->default(0);
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

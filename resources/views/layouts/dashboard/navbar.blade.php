@@ -39,13 +39,16 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                        <i class="now-ui-icons media-2_sound-wave">
+                        <i class="now-ui-icons business_bank">
                         </i>
-                        <p>
-                            <span class="d-lg-none d-md-block">
-                                Stats
-                            </span>
-                        </p>
+                        <p>Balance (BTC): {{ number_format(Auth::user()->getBalance()->amount_btc,8) }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="now-ui-icons business_bank">
+                        </i>
+                        <p>Wallet Balance (USD): {{ Auth::user()->balance }}</p>
                     </a>
                 </li>
                 <li class="nav-item dropdown">

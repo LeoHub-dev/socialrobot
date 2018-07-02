@@ -3,12 +3,27 @@
 namespace App\Models;
 use App\User;
 use App\Models\Api;
-
+use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class UserApi extends Model
 {
     protected $fillable = ['id_user','name','api_category','secret_key','pub_key'];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($user_api) {
+
+            DB::table('user_apis')->where('user_id', '=', $user_api->user_id)->update(array('active' => false));
+            
+        });
+
+        static::deleting(function ($user) {
+            
+        });
+    }
 
     public function user()
     {
