@@ -94,21 +94,21 @@
                     </p>
                 </a>
             </li>
-            <li class="{{ setActive('app/payments') }}">
-                <a href="{{ route('payments') }}">
-                    <i class="now-ui-icons business_money-coins">
-                    </i>
-                    <p>
-                        Recargas
-                    </p>
-                </a>
-            </li>
             <li class="{{ setActive('app/invoices') }}">
                 <a href="{{ route('invoices') }}">
                     <i class="now-ui-icons education_paper">
                     </i>
                     <p>
                         Facturas
+                    </p>
+                </a>
+            </li>
+            <li class="{{ setActive('app/payments') }}">
+                <a href="{{ route('payments') }}">
+                    <i class="now-ui-icons business_money-coins">
+                    </i>
+                    <p>
+                        Recargas
                     </p>
                 </a>
             </li>
