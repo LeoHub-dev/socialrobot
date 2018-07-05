@@ -42,7 +42,6 @@
                             
                             <td>
                                 <a href="{{ url("/admin/posts/{$follow->id}") }}" class="btn btn-xs btn-success">Show</a>
-                                <a href="{{ url("/admin/posts/{$follow->id}/edit") }}" class="btn btn-xs btn-info">Edit</a>
                                 <a href="{{ url("/admin/posts/{$follow->id}") }}" data-method="DELETE" data-token="{{ csrf_token() }}" data-confirm="Are you sure?" class="btn btn-xs btn-danger">Delete</a>
                             </td>
                         </tr>
@@ -79,7 +78,7 @@
                                 Fecha
                             </th>
                             <th>
-                                Action
+                                Perfil
                             </th>
                         </tr>
                     </thead>
@@ -99,8 +98,6 @@
                             
                             <td>
                                 <a href="{{ url("/admin/posts/{$follower->id}") }}" class="btn btn-xs btn-success">Show</a>
-                                <a href="{{ url("/admin/posts/{$follower->id}/edit") }}" class="btn btn-xs btn-info">Edit</a>
-                                <a href="{{ url("/admin/posts/{$follower->id}") }}" data-method="DELETE" data-token="{{ csrf_token() }}" data-confirm="Are you sure?" class="btn btn-xs btn-danger">Delete</a>
                             </td>
                         </tr>
                         @empty

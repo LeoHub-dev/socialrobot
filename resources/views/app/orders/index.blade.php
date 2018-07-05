@@ -5,7 +5,8 @@
     <div class="col-md-4">
         <div class="col-md-12">
             <div class="card">
-                <form>
+                <form action="{{ route('orders.store') }}" method="POST">
+                @csrf
                 <div class="card-header">
                     <h5 class="title">
                         Crear Orden
@@ -18,9 +19,9 @@
                         <div class="col-md-5 pr-1">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">
-                                    Email address
+                                    Moneda
                                 </label>
-                                <input class="form-control" placeholder="Email" type="email" value="{{ Auth::user()->email }}" disabled="true">
+                                <input class="form-control" placeholder="Moneda" type="text" value="" name="coins">
                                 </input>
                             </div>
                         </div>
@@ -28,9 +29,9 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>
-                                    Nombre
+                                    Monto
                                 </label>
-                                <input class="form-control" placeholder="Company" type="text" value="{{ Auth::user()->name }}">
+                                <input class="form-control" placeholder="Monto" type="text" value="" name="amount">
                                 </input>
                             </div>
                         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class CheckInvoices
 {
@@ -15,10 +16,10 @@ class CheckInvoices
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->invoice()->where('paid',0)->count())
+        if(Auth::user()->invoices()->where('paid',0)->count())
         {
-            flash('Debes asignar un balance a invertir')->error()->important();
-            return redirect('/app/settings');
+            flash('Debes pagar tus facturas')->error()->important();
+            return redirect('/app/invoices');
         }
 
         return $next($request);

@@ -45,11 +45,12 @@ class TradingHistory extends Model
 
             foreach($user_trading->followers()->get() as $follower) {
 
-                /*$follow->actionhistories()->create([
+                $follower->user()->get()->first()->actionhistories()->create([
                     'trading_id' => $trading->id,
-                    'amount' => '100',
-                    'result' => $request->result
-                ]);*/
+                    'amount' => $trading->amount
+                ]);
+
+                Debugbar::info($follower->user()->get()->first()->actionhistories());
 
                 Debugbar::info($follower->user()->get());
 

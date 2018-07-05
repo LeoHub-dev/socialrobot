@@ -43,7 +43,10 @@ class User extends Authenticatable
         parent::boot();
 
         static::created(function ($user) {
-            
+            $user = User::find($user->id);
+            $user->invoices()->create([
+                'amount' => 50
+            ]);
         });
 
         static::deleting(function ($user) {

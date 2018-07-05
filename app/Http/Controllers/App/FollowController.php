@@ -54,8 +54,8 @@ class FollowController extends Controller
         Auth::user()->follows()->create([
             'trader_id' => $request->user_id,
             'percent_to_trader' => $request->invest,
-            'base_balance' => 0,
-            'actual_balance' => 0
+            'base_amount' => 0,
+            'actual_amount' => 0
         ]);
 
         return response()->json([

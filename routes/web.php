@@ -25,19 +25,23 @@ Route::group(['prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']]
     Route::get('/payments', 'PaymentController@index')->name('payments');
     Route::post('/payments/getAddress', 'PaymentController@getAddress')->name('payments.getAddress');
 
-    Route::get('/settings', 'SettingsController@index')->name('settings');
-    Route::post('/settings/storeApi', 'SettingsController@storeApi')->name('settings.storeApi');
-    Route::post('/settings/storeBalance', 'SettingsController@storeBalance')->name('settings.storeBalance')->middleware('checkApi');
+    Route::group(['middleware' => ['checkInvoices']], function () {
 
-    Route::group(['middleware' => ['checkApi','checkBalance']], function () {
+        Route::get('/settings', 'SettingsController@index')->name('settings');
+        Route::post('/settings/storeApi', 'SettingsController@storeApi')->name('settings.storeApi');
+        Route::post('/settings/storeBalance', 'SettingsController@storeBalance')->name('settings.storeBalance')->middleware('checkApi');
 
-        Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-        Route::get('/profile', 'ProfileController@index')->name('profile');
-        Route::get('/profile/edit', 'ProfileController@edit')->name('profile.edit');
-        Route::post('/profile/update', 'ProfileController@update')->name('profile.update');
-        Route::resource('/orders', 'TradingHistoryController', ['only' => ['index','store']]);
-        Route::resource('/follows', 'FollowController', ['only' => ['index','store']]);
-        Route::get('/history', 'ActionHistoryController@index')->name('history');
+        Route::group(['middleware' => ['checkInvoices']], function () {
+
+            Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+            Route::get('/profile', 'ProfileController@index')->name('profile');
+            Route::get('/profile/edit', 'ProfileController@edit')->name('profile.edit');
+            Route::post('/profile/update', 'ProfileController@update')->name('profile.update');
+            Route::resource('/orders', 'TradingHistoryController', ['only' => ['index','store']]);
+            Route::resource('/follows', 'FollowController', ['only' => ['index','store']]);
+            Route::get('/history', 'ActionHistoryController@index')->name('history');
+
+        });
 
     });
 

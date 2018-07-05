@@ -25,19 +25,6 @@ class TradingHistoryController extends Controller
         return view('app.orders.index', compact('orders','title'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $categories = Category::pluck('name', 'id')->all();
-        $tags = Tag::pluck('name', 'name')->all();
-
-        return view('admin.posts.create', compact('categories', 'tags'));
-    }
-
     
     public function store(Request $request)
     {
@@ -48,7 +35,7 @@ class TradingHistoryController extends Controller
             'amount' => $request->amount
         ]);
 
-        return redirect("/app/dashboard");
+        return redirect("/app/orders");
 
     }
 }
