@@ -21,6 +21,8 @@ Route::post('/auth/token', 'Api\AuthController@getAccessToken');
 Route::post('/auth/reset-password', 'Api\AuthController@passwordResetRequest');
 Route::post('/auth/change-password', 'Api\AuthController@changePassword');
 
+Route::get('/payments/notifications', 'App\PaymentController@notifications');
+
 Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
     Route::get('/tags', 'ListingController@tags');
     Route::get('/categories', 'ListingController@categories');

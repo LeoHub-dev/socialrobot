@@ -42,6 +42,34 @@ $(document).ready(function() {
 	    });
 	});
 
+	$('.form-payment-coin').on('submit', function(e){
+		
+		e.preventDefault();
+
+		var form = $(this);
+
+		$.post($(this).attr('action'), $(this).serialize(), function(response) {
+			
+			$('#payment-info').fadeIn();
+			$('.payment-coin').html(form.find('select[name=coin]').val());
+			$('#payment-address').val(response.data.message);
+
+	    },"json").fail(function(xhr, status, error) {
+
+	    	if(xhr.responseJSON != undefined && xhr.responseJSON.error)
+	    	{
+	    		errorModal(xhr.responseJSON.message);
+	    	}
+	    	else
+	    	{
+	    		alert('Hubo un error');
+	    		console.log(error);
+	    		console.log(xhr.responseJSON);
+
+	    	}
+	    });
+	});
+
 })
 
 function errorModal(error)

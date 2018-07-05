@@ -24,7 +24,7 @@
             <div class="info">
                 <a data-toggle="collapse" href="#collapseExample" class="collapsed">
                     <span>
-                        James Amos
+                        {{ Auth::user()->name }}
                         <b class="caret">
                         </b>
                     </span>
@@ -99,7 +99,16 @@
                     <i class="now-ui-icons business_money-coins">
                     </i>
                     <p>
-                        Pagos
+                        Recargas
+                    </p>
+                </a>
+            </li>
+            <li class="{{ setActive('app/invoices') }}">
+                <a href="{{ route('invoices') }}">
+                    <i class="now-ui-icons education_paper">
+                    </i>
+                    <p>
+                        Facturas
                     </p>
                 </a>
             </li>

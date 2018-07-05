@@ -29,38 +29,19 @@ class Wallet extends Model
     {
         parent::boot();
 
-        static::created(function ($trading) {
+        static::created(function ($data) {
 
-            $user_wallet = User::find($trading->user_id);
-            $user_wallet->wallet = floor(($trading_total / $trading_n) * 100);
+            $user_wallet = User::find($data->user_id);
+            $user_wallet->wallet = $user_wallet->wallet + $data->amount;
             $user_wallet->save();
             
         });
 
-        static::updated(function ($trading) {
+        static::updated(function ($data) {
 
-            $trading_total = 0;
-            $trading_n = 0;
-
-            $user_trading = User::find($trading->user_id);
-
-            foreach($user_trading->tradinghistories()->get() as $trading) {
-
-                if($trading->result == 1){
-                    $trading_total++;
-                }
-                else if($trading->result == 0){
-                    $trading_total--;
-                }
-
-                $trading_n++;
-                
-            }
-
-            if($trading_n == 0) : $trading_n = 1; endif;
-
-            $user_trading->reputation = floor(($trading_total / $trading_n) * 100);
-            $user_trading->save();
+            $user_wallet = User::find($data->user_id);
+            $user_wallet->wallet = $user_wallet->wallet + $data->amount;
+            $user_wallet->save();
 
         });
     }

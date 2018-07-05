@@ -12,7 +12,8 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "~5.0",
         "messerli90/bittrex": "dev-master",
-        "zizaco/entrust": "dev-master"
+        "zizaco/entrust": "dev-master",
+        "coinbase/coinbase": "~2.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.1",

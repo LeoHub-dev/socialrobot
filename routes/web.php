@@ -21,7 +21,9 @@ Route::group(['prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']]
 	    return redirect('/app/dashboard');
 	});
 
+    Route::get('/invoices', 'InvoiceController@index')->name('invoices');
     Route::get('/payments', 'PaymentController@index')->name('payments');
+    Route::post('/payments/getAddress', 'PaymentController@getAddress')->name('payments.getAddress');
 
     Route::get('/settings', 'SettingsController@index')->name('settings');
     Route::post('/settings/storeApi', 'SettingsController@storeApi')->name('settings.storeApi');

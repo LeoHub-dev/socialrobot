@@ -9,6 +9,7 @@ use App\Models\TradingHistory;
 use App\Models\ActionHistory;
 use App\Models\Invoice;
 use App\Models\Wallet;
+use App\Models\PaymentAddress;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,7 +42,7 @@ class User extends Authenticatable
     {
         parent::boot();
 
-        static::creating(function ($user) {
+        static::created(function ($user) {
             
         });
 
@@ -103,6 +104,11 @@ class User extends Authenticatable
     public function apis()
     {
         return $this->hasMany(UserApi::class, 'user_id', 'id');
+    }
+
+    public function paymentaddresses()
+    {
+        return $this->hasMany(PaymentAddress::class);
     }
 
 
