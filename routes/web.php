@@ -22,6 +22,7 @@ Route::group(['prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']]
 	});
 
     Route::get('/invoices', 'InvoiceController@index')->name('invoices');
+    Route::get('/invoices/pay/{id}', 'InvoiceController@pay')->name('invoices.pay');
     Route::get('/payments', 'PaymentController@index')->name('payments');
     Route::post('/payments/getAddress', 'PaymentController@getAddress')->name('payments.getAddress');
 

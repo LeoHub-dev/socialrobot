@@ -43,7 +43,7 @@
                                     </td>
                                     
                                     <td>
-                                        Pagar
+                                        <a href="{{ url('app/invoices/pay/'.$invoice->id) }}">Pagar</a>
                                     </td>
                                 </tr>
                                 @empty
