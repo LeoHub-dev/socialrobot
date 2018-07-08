@@ -43,7 +43,7 @@
                                     </td>
                                     
                                     <td>
-                                        <a href="{{ url('app/invoices/pay/'.$invoice->id) }}">Pagar</a>
+                                        <a class="json-action-link" data-method="PUT" data-token="{{ csrf_token() }}" data-confirm="Are you sure?" href="{{ url('app/invoices/pay/'.$invoice->id) }}">Pagar</a>
                                     </td>
                                 </tr>
                                 @empty

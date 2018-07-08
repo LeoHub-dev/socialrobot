@@ -28,21 +28,23 @@ class InvoiceController extends Controller
     }
 
     
-    public function pay(Request $request)
+    public function pay(Invoice $invoice)
     {
-        $this->validate($request, ['id' => 'required|exists:invoices,id']);
+        //$this->validate($request, ['id' => 'required|exists:invoices,id']);
 
-        $invoice = Invoice::find($request->id);
+        //$invoice = Invoice::find($request->id);
 
-        if($invoice->count())
+        Debugbar::info($invoice);
+
+        if($invoice)
         {
-            if($invoice->get()->first()->user_id == Auth::id())
+            if($invoice->user_id == Auth::id())
             {
-                if(Auth::user()->wallet >= $invoice->get()->first()->amount)
+                if(Auth::user()->wallet >= $invoice->amount)
                 {
 
                     Auth::user()->wallet()->create([
-                        'amount' => -$invoice->get()->first()->amount
+                        'amount' => -$invoice->amount
                     ]);
 
                     $invoice->paid = 1;
