@@ -18,9 +18,6 @@
                                         Monto
                                     </th>
                                     <th>
-                                        Estado
-                                    </th>
-                                    <th>
                                         Fecha
                                     </th>
                                     <th>
@@ -36,14 +33,16 @@
                                         {{ $invoice->amount }}
                                     </td>
                                     <td>
-                                        {{ $invoice->paid }}
-                                    </td>
-                                    <td>
                                         {{ $invoice->created_at }}
                                     </td>
-                                    
                                     <td>
-                                        <a class="json-action-link" data-method="PUT" data-token="{{ csrf_token() }}" data-confirm="Are you sure?" href="{{ url('app/invoices/pay/'.$invoice->id) }}">Pagar</a>
+                                        @if(!$invoice->paid)
+                                        <div id="respuesta-pagar">
+                                            <a class="json-action-link" data-method="PUT" data-token="{{ csrf_token() }}" data-confirm="Are you sure?" data-target="respuesta-pagar" href="{{ url('app/invoices/pay/'.$invoice->id) }}">Pagar</a>
+                                        </div>
+                                        @else
+                                        Pago
+                                        @endif
                                     </td>
                                 </tr>
                                 @empty
