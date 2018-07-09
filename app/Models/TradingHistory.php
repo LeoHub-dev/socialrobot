@@ -2,9 +2,12 @@
 
 namespace App\Models;
 use App\User;
+use App\Models\UserApi;
+use App\Models\Api;
 
 use Illuminate\Database\Eloquent\Model;
 use Debugbar;
+use Messerli90\Bittrex\Bittrex;
 
 class TradingHistory extends Model
 {
@@ -44,6 +47,16 @@ class TradingHistory extends Model
             $user_trading->save();
 
             foreach($user_trading->followers()->get() as $follower) {
+
+                $actived_api = $follower->user()->apis()->where([['user_id',$follower->user()->get()->first()->id],['active',true]])->first();
+                $bittrex = new Bittrex($actived_api->pub_key, $actived_api->secret_key);
+
+                // Used to place a buy order in a specific market. Use buylimit to place limit orders. Make sure you have the proper permissions set on your API keys for this call to work
+                $bittrex->buyLimit('BTC-LTC', 1.2, 1.3);
+
+                // Used to place an sell order in a specific market. Use selllimit to place limit orders.
+                $bittrex->sellLimit('BTC-LTC', 1.2, 1.3);
+
 
                 $follower->user()->get()->first()->actionhistories()->create([
                     'trading_id' => $trading->id,

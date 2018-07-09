@@ -4,7 +4,7 @@ namespace App\Http\Controllers\App;
 
 use App\Models\TradingHistory;
 use App\User;
-
+use Messerli90\Bittrex\Bittrex;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -21,8 +21,11 @@ class TradingHistoryController extends Controller
         $title = 'Ordenes';
 
         $orders = Auth::user()->tradinghistories()->paginate(10);
+        $bittrex = new Bittrex(null, null);
+        
+        dd($bittrex->getMarkets());
 
-        return view('app.orders.index', compact('orders','title'));
+        return view('app.orders.index', compact('orders','title','bittrex'));
     }
 
     

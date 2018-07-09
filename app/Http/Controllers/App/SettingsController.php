@@ -28,7 +28,7 @@ class SettingsController extends Controller
         $apis_list = Auth::user()->apis()->with('api')->paginate(10);
         $balances_list = Auth::user()->balancepercents()->paginate(10);
 
-        $actived_api = Auth::user()->apis()->where('user_id',Auth::id())->first();
+        $actived_api = Auth::user()->apis()->where([['user_id',Auth::id()],['active',true]])->first();
 
         if($actived_api)
         {
