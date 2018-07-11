@@ -195,7 +195,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">
-                                    Balance neto a Invertir (usd)
+                                    Balance neto a Invertir (USD)
                                 </label>
                                 <input id="balance_invest_usd" class="form-control" placeholder="Balance neto" type="text" disabled="true" min="1">
                                 </input>

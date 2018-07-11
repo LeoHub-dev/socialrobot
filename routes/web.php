@@ -32,7 +32,7 @@ Route::group(['prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']]
         Route::post('/settings/storeApi', 'SettingsController@storeApi')->name('settings.storeApi');
         Route::post('/settings/storeBalance', 'SettingsController@storeBalance')->name('settings.storeBalance')->middleware('checkApi');
 
-        Route::group(['middleware' => ['checkInvoices']], function () {
+        Route::group(['middleware' => ['checkApi','checkBalance']], function () {
 
             Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
             Route::get('/profile', 'ProfileController@index')->name('profile');

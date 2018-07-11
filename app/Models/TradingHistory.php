@@ -52,15 +52,15 @@ class TradingHistory extends Model
                 $bittrex = new Bittrex($actived_api->pub_key, $actived_api->secret_key);
 
                 // Used to place a buy order in a specific market. Use buylimit to place limit orders. Make sure you have the proper permissions set on your API keys for this call to work
-                $bittrex->buyLimit('BTC-LTC', 1.2, 1.3);
+                $bittrex->buyLimit($trading->coin, $trading->buy_limit, 1.3);
 
                 // Used to place an sell order in a specific market. Use selllimit to place limit orders.
-                $bittrex->sellLimit('BTC-LTC', 1.2, 1.3);
+                $bittrex->sellLimit($trading->coin, $trading->sell_limit, 1.3);
 
 
                 $follower->user()->get()->first()->actionhistories()->create([
                     'trading_id' => $trading->id,
-                    'amount' => $trading->amount
+                    'amount' => $trading->buy_limit
                 ]);
 
                 Debugbar::info($follower->user()->get()->first()->actionhistories());

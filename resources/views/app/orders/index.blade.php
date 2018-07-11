@@ -15,27 +15,58 @@
                 <div class="card-body">
                     
                     <div class="row">
-
-                        <div class="col-md-5 pr-1">
+                        
+                        <div class="col-md-12">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">
+                                <label>
                                     Moneda
                                 </label>
-                                <input class="form-control" placeholder="Moneda" type="text" value="" name="coins">
-                                </input>
+                                
+                                <select class="selectpicker" data-size="7" data-style="btn btn-primary btn-round" title="Coins" name="coins" required>
+                                    <option disabled selected>Elige la moneda</option>
+                                    @foreach ($bittrex->getMarkets()->result as $moneda)
+                                        @if($moneda->BaseCurrency == "BTC")
+                                            <option value="{{ $moneda->MarketName }}">{{ $moneda->MarketName }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                                
                             </div>
                         </div>
             
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>
-                                    Monto
+                                    Buy limit
                                 </label>
-                                <input class="form-control" placeholder="Monto" type="text" value="" name="amount">
+                                <input class="form-control" placeholder="Limite compra" type="text" value="" name="buy_limit" required>
                                 </input>
                             </div>
                         </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>
+                                    Sell limit
+                                </label>
+                                <input class="form-control" placeholder="Limite Venta" type="text" value="" name="sell_limit" required>
+                                </input>
+                            </div>
+                        </div>
+
+    
+                        <div class="form-check text-left">
+                            <label class="form-check-label">
+                                <input class="form-check-input" name="auto_order" type="checkbox">
+                                    <span class="form-check-sign">
+                                    </span>Crear orden en mi cuenta tambien
+                                </input>
+                            </label>
+                        </div>
+                       
                     </div>
+
+
 
                     <div class="col-md-12"> 
                         @if(session()->has('message'))
