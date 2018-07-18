@@ -15,6 +15,11 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
+Route::get('login/facebook', 'Auth\LoginController@redirectToFacebook');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
+Route::get('login/google', 'Auth\LoginController@redirectToGoogle');
+Route::get('login/google/callback', 'Auth\LoginController@handleGoogleCallback');
+
 Route::group(['prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']], function () {
 
 	Route::get('/', function() {

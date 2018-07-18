@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Hash;
+
+use Auth;
+use Socialite;
 
 class LoginController extends Controller
 {
@@ -35,5 +39,42 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function redirectToFacebook()
+    {
+        return Socialite::driver('facebook')->setScopes(['read:user', 'public_repo'])->redirect();
+    }
+
+    public function handleFacebookCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        // $user->token;
+    }
+
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->setScopes(['read:user', 'public_repo'])->redirect();
+    }
+
+    public function handleGoogleCallback()
+    {
+        $user = Socialite::driver('google')->user();
+
+        // $user->token;
+    }
+
+    public function findOrCreateUser($user, $provider)
+    {
+        $authUser = User::where('email', $user->getEmail())->first();
+        if ($authUser) {
+            return $authUser;
+        }
+        return User::create([
+            'name'     => $user->getName(),
+            'email'    => $user->getEmail(),
+            'password' => Hash::make($user->getName().$user->getId().$user->getEmail())
+        ]);
     }
 }

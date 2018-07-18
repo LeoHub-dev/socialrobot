@@ -164,6 +164,7 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Messerli90\Bittrex\BittrexServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
 
@@ -218,6 +219,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Bittrex' => \Messerli90\Bittrex\Facades\Bittrex::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 
