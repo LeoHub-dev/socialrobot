@@ -86,9 +86,6 @@
                         </p>
                     </a>
                     <div aria-labelledby="navbarDropdownUserLink" class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#">
-                            Balance : 
-                        </a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                             {{ __('Desconectarse') }}
                         </a>

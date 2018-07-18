@@ -49,15 +49,15 @@
            
                 <div class="pull-left">
                     <h6>
-                        <a class="link footer-link" href="#pablo">
-                            Create Account
+                        <a class="link footer-link" href="{{ route('register') }}">
+                            Crear Cuenta
                         </a>
                     </h6>
                 </div>
                 <div class="pull-right">
                     <h6>
                         <a class="link footer-link" href="#pablo">
-                            Need Help?
+                            <!--Need Help?-->
                         </a>
                     </h6>
                 </div>

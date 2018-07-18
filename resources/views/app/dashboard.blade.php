@@ -197,10 +197,6 @@
     @empty
     <div class="col-lg-12">
         <div class="alert alert-info alert-with-icon" data-notify="container">
-            <button aria-hidden="true" class="close" type="button">
-                <i class="now-ui-icons ui-1_simple-remove">
-                </i>
-            </button>
             <span class="now-ui-icons ui-1_bell-53" data-notify="icon">
             </span>
             <span data-notify="message">
