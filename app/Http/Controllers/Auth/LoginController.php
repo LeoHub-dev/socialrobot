@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Hash;
 
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 use Socialite;
 
 class LoginController extends Controller
@@ -43,29 +44,33 @@ class LoginController extends Controller
 
     public function redirectToFacebook()
     {
-        return Socialite::driver('facebook')->setScopes(['read:user', 'public_repo'])->redirect();
+        return Socialite::driver('facebook')->setScopes(['email', 'public_profile'])->redirect();
     }
 
     public function handleFacebookCallback()
     {
         $user = Socialite::driver('facebook')->user();
 
-        // $user->token;
+        $authUser = $this->findOrCreateUser($user);
+        Auth::login($authUser, true);
+        return redirect($this->redirectTo);
     }
 
     public function redirectToGoogle()
     {
-        return Socialite::driver('google')->setScopes(['read:user', 'public_repo'])->redirect();
+        return Socialite::driver('google')->setScopes(['profile', 'email'])->redirect();
     }
 
     public function handleGoogleCallback()
     {
         $user = Socialite::driver('google')->user();
 
-        // $user->token;
+        $authUser = $this->findOrCreateUser($user);
+        Auth::login($authUser, true);
+        return redirect($this->redirectTo);
     }
 
-    public function findOrCreateUser($user, $provider)
+    public function findOrCreateUser($user)
     {
         $authUser = User::where('email', $user->getEmail())->first();
         if ($authUser) {
