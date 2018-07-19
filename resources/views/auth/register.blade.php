@@ -53,18 +53,18 @@
                     Registro
                 </h4>
                 <div class="social">
-                    <a class="btn btn-icon btn-round btn-twitter" href="{{ url('login/google') }}">
-                        <i class="fab fa-twitter">
+                    <a href="{{ url('login/google') }}"><button class="btn btn-icon btn-round btn-google">
+                        <i class="fab fa-google-plus-g">
                         </i>
-                    </a>
-                    <a class="btn btn-icon btn-round btn-dribbble">
+                    </button></a>
+                    <button class="btn btn-icon btn-round btn-dribbble">
                         <i class="fab fa-dribbble">
                         </i>
-                    </a>
-                    <a class="btn btn-icon btn-round btn-facebook" href="{{ url('login/facebook') }}">
+                    </button>
+                    <a href="{{ url('login/facebook') }}"><button class="btn btn-icon btn-round btn-facebook">
                         <i class="fab fa-facebook-f">
                         </i>
-                    </a>
+                    </button></a>
                     <h5 class="card-description">
                         or hazlo manualmente
                     </h5>

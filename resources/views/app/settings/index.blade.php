@@ -228,7 +228,7 @@
             </div>
         </div>
         <div class="col-md-12">
-            <div class="card @if(!$actived_api) __disabled @endif"">
+            <div class="card @if(!$actived_api) __disabled @endif">
                 @if(!$actived_api)
                 <div class="disabled-container text-center">
                     <div class="icon">

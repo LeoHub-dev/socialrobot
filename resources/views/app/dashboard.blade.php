@@ -121,7 +121,7 @@
                             </label>
                             <div class="col-md-9">
                                 <div class="form-group">
-                                    <input class="form-control" name="balance" number="true" type="number" readonly="" />
+                                    <input class="form-control" name="balance" number="true" type="number" value="{{ number_format(Auth::user()->getBalance()->amount_btc,8) }}" readonly="" />
                                 </div>
                             </div>
                         </div>
@@ -229,6 +229,25 @@
 
       demo.initVectorMap();
 
+        $('.balance_calculator').on('input', function(e) { 
+
+            var balance_invest_percent = $(this).val();
+            var balance_available = $('#balance_available').val();
+            var usd_price = $('#usd_price').val();
+
+            var balance_invest_btc = (balance_available * balance_invest_percent) / 100;
+            var balance_invest_usd = balance_invest_btc * usd_price;
+
+            $('#balance_invest_btc').val(parseFloat(balance_invest_btc).toFixed(8));
+            $('#balance_invest_usd').val(balance_invest_usd);
+            
+        });
+
     });
+</script>
+@endpush
+@push('extra_scripts')
+<script type="text/javascript">
+    
 </script>
 @endpush
