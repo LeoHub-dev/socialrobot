@@ -55,7 +55,8 @@ class FollowController extends Controller
             'trader_id' => $request->user_id,
             'percent_to_trader' => $request->invest,
             'base_amount' => 0,
-            'actual_amount' => 0
+            'actual_amount' => 0,
+            'orders_amount' => $request->orders_count
         ]);
 
         return response()->json([

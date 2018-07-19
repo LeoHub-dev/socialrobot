@@ -14,10 +14,10 @@
                                     </i>
                                 </div>
                                 <h3 class="info-title">
-                                    859
+                                    0
                                 </h3>
                                 <h6 class="stats-title">
-                                    Messages
+                                    Mensajes
                                 </h6>
                             </div>
                         </div>
@@ -33,10 +33,10 @@
                                     <small>
                                         $
                                     </small>
-                                    3,521
+                                    5000
                                 </h3>
                                 <h6 class="stats-title">
-                                    Today Revenue
+                                    Ganancias
                                 </h6>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                                     562
                                 </h3>
                                 <h6 class="stats-title">
-                                    Customers
+                                    Seguidores
                                 </h6>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                                     353
                                 </h3>
                                 <h6 class="stats-title">
-                                    Support Requests
+                                    Siguiendo
                                 </h6>
                             </div>
                         </div>
@@ -145,6 +145,20 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">
+                                Cantidad de ordenes a invertir
+                            </label>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <div id="sliderRegular" class="slider"></div>
+                                    <input class="form-control" name="order_count" type="hidden"  value="0" />
+                                </div>
+                            </div>
+                        </div>
+
+                        
                     
                 </div>
             </div>

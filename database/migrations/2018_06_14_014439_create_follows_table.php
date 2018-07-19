@@ -20,6 +20,7 @@ class CreateFollowsTable extends Migration
             $table->integer('percent_to_trader');
             $table->float('base_amount', 8, 2);
             $table->float('actual_amount', 8, 2);
+            $table->integer('orders_amount');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('trader_id')->references('id')->on('users');
             $table->timestamps();
