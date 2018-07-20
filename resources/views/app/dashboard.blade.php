@@ -121,7 +121,7 @@
                             </label>
                             <div class="col-md-9">
                                 <div class="form-group">
-                                    <input class="form-control" name="balance" number="true" type="number" value="{{ number_format(Auth::user()->getBalance()->amount_btc,8) }}" readonly="" />
+                                    <input class="form-control" id="balance_available" name="balance" number="true" type="number" value="{{ number_format(Auth::user()->getBalance()->amount_btc,8) }}" readonly="" />
                                 </div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                             </label>
                             <div class="col-md-9">
                                 <div class="form-group">
-                                    <input class="form-control" max="100" min="1" name="invest" number="true" type="number"/>
+                                    <input class="form-control" id="invest_calculator" max="100" min="1" name="invest" number="true" type="number"/>
                                 </div>
                             </div>
                         </div>
@@ -141,20 +141,19 @@
                             </label>
                             <div class="col-md-9">
                                 <div class="form-group">
-                                    <input class="form-control" name="total" number="true" type="number" readonly="true"  value="0" />
+                                    <input class="form-control" id="balance_invest_btc" name="total" number="true" type="number" readonly="true"  value="0" />
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <label class="col-md-3 col-form-label">
-                                Cantidad de ordenes a invertir
-                            </label>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <div id="sliderRegular" class="slider"></div>
-                                    <input class="form-control" name="order_count" type="hidden"  value="0" />
-                                </div>
+                        <div class="text-center slider-div">
+                         
+                            <h4 class="card-title">Cantidad de ordenes a invertir</h4>
+                            <div class="col-md-12">
+                                
+                                <div id="sliderRegular" class="slider"></div>
+                                <input id="order_count" class="form-control" name="order_count" number="true" type="hidden" readonly="true"  value="1" />
+                                
                             </div>
                         </div>
 
@@ -224,30 +223,45 @@
 @push('extra_scripts')
 <script>
     $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initDashboardPageCharts();
+        // Javascript method's body can be found in assets/js/demos.js
+        
+        var slider = document.getElementById('sliderRegular');
 
-      demo.initVectorMap();
+        noUiSlider.create(slider, {
+            start: 1,
+            connect: [true, false],
+            tooltips: true,
+            pips: {
+                mode: 'steps',
+                stepped: true,
+                density: 4
+            },
+            step: 1,
+            range: {
+                min: 1,
+                max: 3
+            }
+        });
 
-        $('.balance_calculator').on('input', function(e) { 
+        slider.noUiSlider.on('update', function() {
+            $('#order_count').val(slider.noUiSlider.get());
+        });
+
+        demo.initDashboardPageCharts();
+
+        demo.initVectorMap();
+
+        $('#invest_calculator').on('input', function(e) { 
 
             var balance_invest_percent = $(this).val();
             var balance_available = $('#balance_available').val();
-            var usd_price = $('#usd_price').val();
 
             var balance_invest_btc = (balance_available * balance_invest_percent) / 100;
-            var balance_invest_usd = balance_invest_btc * usd_price;
 
             $('#balance_invest_btc').val(parseFloat(balance_invest_btc).toFixed(8));
-            $('#balance_invest_usd').val(balance_invest_usd);
             
         });
 
     });
-</script>
-@endpush
-@push('extra_scripts')
-<script type="text/javascript">
-    
 </script>
 @endpush
