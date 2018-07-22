@@ -26,18 +26,28 @@
                                     <option disabled selected>Elige la moneda</option>
                                     @foreach ($bittrex->getMarkets()->result as $moneda)
                                         @if($moneda->BaseCurrency == "BTC")
-                                            <option value="{{ $moneda->MarketName }}">{{ $moneda->MarketName }}</option>
+                                            <option value="{{ $moneda->MarketName }}">{{ $moneda->MarketCurrencyLong }} ({{ $moneda->MarketName }})</option>
                                         @endif
                                     @endforeach
                                 </select>
                                 
                             </div>
                         </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>
+                                    Monto
+                                </label>
+                                <input class="form-control" placeholder="Monto a comprar" type="text" value="" name="amount" required>
+                                </input>
+                            </div>
+                        </div>
             
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>
-                                    Buy limit
+                                    Comprar a
                                 </label>
                                 <input class="form-control" placeholder="Limite compra" type="text" value="" name="buy_limit" required>
                                 </input>
@@ -47,9 +57,19 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>
-                                    Sell limit
+                                    Vender al mayor que >
                                 </label>
-                                <input class="form-control" placeholder="Limite Venta" type="text" value="" name="sell_limit" required>
+                                <input class="form-control" placeholder="Limite Venta alta" type="text" value="" name="sell_limit" required>
+                                </input>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>
+                                    Vender al menor que <
+                                </label>
+                                <input class="form-control" placeholder="Limite Venta baja" type="text" value="" name="stop_loss" required>
                                 </input>
                             </div>
                         </div>

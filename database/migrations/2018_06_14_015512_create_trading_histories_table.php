@@ -17,8 +17,10 @@ class CreateTradingHistoriesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('coins');
-            $table->float('buy_limit', 8, 2);
-            $table->float('sell_limit', 8, 2);
+            $table->float('amount', 16, 8);
+            $table->float('sell_limit', 16, 8);
+            $table->float('buy_limit', 16, 8);
+            $table->float('stop_loss', 16, 8);
             $table->integer('result')->default('0');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

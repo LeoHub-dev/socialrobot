@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 Route::post('/auth/token', 'Api\AuthController@getAccessToken');
 Route::post('/auth/reset-password', 'Api\AuthController@passwordResetRequest');
 Route::post('/auth/change-password', 'Api\AuthController@changePassword');
+Route::get('/checkorders', 'Api\CronController@checkOrders');
 
 Route::get('/payments/notifications', 'App\PaymentController@notifications');
 

@@ -12,7 +12,7 @@ use Messerli90\Bittrex\Bittrex;
 class TradingHistory extends Model
 {
     protected $fillable = [
-        'user_id', 'coins', 'amount', 'result',
+        'user_id', 'coins', 'amount', 'result', 'buy_limit', 'sell_limit', 'stop_loss'
     ];
 
 	protected static function boot()
@@ -52,22 +52,20 @@ class TradingHistory extends Model
                 $bittrex = new Bittrex($actived_api->pub_key, $actived_api->secret_key);
 
                 // Used to place a buy order in a specific market. Use buylimit to place limit orders. Make sure you have the proper permissions set on your API keys for this call to work
-                $bittrex->buyLimit($trading->coin, $trading->buy_limit, 1.3);
+                $buy_response = $bittrex->buyLimit($trading->coin, $trading->buy_limit, 1.3);
+
+                if($buy_response->success)
+                {
+                    $buy_uuid = $buy_response->result->uuid;
+
+                    $follower->user()->get()->first()->actionhistories()->create([
+                        'trading_id' => $trading->id,
+                        'amount' => $trading->buy_limit
+                    ]);
+                }
 
                 // Used to place an sell order in a specific market. Use selllimit to place limit orders.
-                $bittrex->sellLimit($trading->coin, $trading->sell_limit, 1.3);
-
-
-                $follower->user()->get()->first()->actionhistories()->create([
-                    'trading_id' => $trading->id,
-                    'amount' => $trading->buy_limit
-                ]);
-
-                Debugbar::info($follower->user()->get()->first()->actionhistories());
-
-                Debugbar::info($follower->user()->get());
-
-                Debugbar::info($follower->user()->get()->first()->name);
+                //$bittrex->sellLimit($trading->coin, $trading->sell_limit, 1.3);
                 
             }
             
@@ -104,6 +102,11 @@ class TradingHistory extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function scopeUnsuccess($query)
+    {
+        return $query->where('result', 0);
     }
 
     public function scopeSuccess($query)
