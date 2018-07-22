@@ -45,8 +45,7 @@ class TradingHistoryController extends Controller
             'amount' => $request->amount,
             'buy_limit' => $request->buy_limit,
             'sell_limit' => $request->sell_limit,
-            'stop_loss' => $request->stop_loss,
-            'buy_uuid' => $buy_uuid
+            'stop_loss' => $request->stop_loss
         ]);
 
         if($request->auto_order)
@@ -68,7 +67,8 @@ class TradingHistoryController extends Controller
 
             Auth::actionhistories()->create([
                 'trading_id' => $trading->id,
-                'amount' => $trading->buy_limit
+                'amount' => $trading->buy_limit,
+                'buy_uuid' => $buy_uuid
             ]);
 
             // Used to place an sell order in a specific market. Use selllimit to place limit orders.

@@ -17,17 +17,6 @@ class CronController extends Controller
 {
     public function checkOrders()
     {
-        /*$actived_api = Auth::user()->apis()->where([['user_id',Auth::id()],['active',true]])->first();
-
-        if($actived_api)
-        {
-            $bittrex = new Bittrex($actived_api->pub_key, $actived_api->secret_key);
-            $balance = $bittrex->getBalance('BTC');
-            Debugbar::info($bittrex->getBalance('BTC'));
-        }*/
-
-        //dd(TradingHistory::Unsuccess()->get());
-
         $bittrex = new Bittrex(null, null);
         $coins_list = array();
 
@@ -43,19 +32,30 @@ class CronController extends Controller
 
             foreach (ActionHistory::where('trading_id', $order->id)->get() as $order_copy) 
             {
-                if($order->stop_loss == $coins_list[$order->coins]->last)
+                $actived_api = $order_copy->user()->apis()->where([['user_id',$order_copy->user()->get()->first()->id],['active',true]])->first();
+                $user_bittrex = new Bittrex($actived_api->pub_key, $actived_api->secret_key);
+
+                if($order_copy->sell_uuid == NULL)
                 {
-                    $actived_api = $order_copy->user()->apis()->where([['user_id',$order_copy->user()->get()->first()->id],['active',true]])->first();
-                    $bittrex = new Bittrex($actived_api->pub_key, $actived_api->secret_key);
+                    $buy_order = $user_bittrex->getOrder($order_copy->buy_uuid);
+                    if($buy_order->success)
+                    {
+                        if(!$buy_order->result->isOpen)
+                        {
+                            $sell_order = $user_bittrex->sellLimit($order->coins, $order->sell_limit, 1.3);
+                            $order_copy->sell_uuid = $sell_order->result->uuid;
+                            $order_copy->save();
+                        }
+                    }
+                }
+                else if($order->stop_loss == $coins_list[$order->coins]->last)
+                {
                     $user_bittrex->cancel($order_copy->sell_uid);
                     $user_bittrex->sellLimit($order->coins, $coins_list[$order->coins]->last, 1.3);
                 }
             }
             
         }
-
-        dd($coins_list);
-
     }
 
 }

@@ -60,7 +60,8 @@ class TradingHistory extends Model
 
                     $follower->user()->get()->first()->actionhistories()->create([
                         'trading_id' => $trading->id,
-                        'amount' => $trading->buy_limit
+                        'amount' => $trading->buy_limit,
+                        'buy_uuid' => $buy_uuid
                     ]);
                 }
 
