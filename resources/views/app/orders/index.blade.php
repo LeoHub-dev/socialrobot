@@ -37,7 +37,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>
-                                    Monto
+                                    Cantidad a comprar
                                 </label>
                                 <input class="form-control" placeholder="Monto a comprar" type="text" value="" name="amount" required>
                                 </input>
@@ -57,7 +57,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>
-                                    Vender al mayor que >
+                                    Vender en 
                                 </label>
                                 <input class="form-control" placeholder="Limite Venta alta" type="text" value="" name="sell_limit" required>
                                 </input>
@@ -67,7 +67,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>
-                                    Vender al menor que <
+                                    Stop Loss
                                 </label>
                                 <input class="form-control" placeholder="Limite Venta baja" type="text" value="" name="stop_loss" required>
                                 </input>
