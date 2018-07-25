@@ -39,8 +39,6 @@ class TradingHistory extends Model
                 
             }
 
-            Debugbar::info($trading_total);
-
             if($trading_n == 0) : $trading_n = 1; endif;
 
             $user_trading->reputation = floor(($trading_total / $trading_n) * 100);
@@ -48,25 +46,32 @@ class TradingHistory extends Model
 
             foreach($user_trading->followers()->get() as $follower) {
 
-                $actived_api = $follower->user()->apis()->where([['user_id',$follower->user()->get()->first()->id],['active',true]])->first();
-                $bittrex = new Bittrex($actived_api->pub_key, $actived_api->secret_key);
-
-                // Used to place a buy order in a specific market. Use buylimit to place limit orders. Make sure you have the proper permissions set on your API keys for this call to work
-                $buy_response = $bittrex->buyLimit($trading->coin, $trading->buy_limit, 1.3);
-
-                if($buy_response->success)
+                if($follower->actual_amount >= $trading->buy_limit) //User has anough to pay
                 {
-                    $buy_uuid = $buy_response->result->uuid;
+                    $actived_api = $follower->user()->apis()->where('active',true)->first();
+                    $bittrex = new Bittrex($actived_api->pub_key, $actived_api->secret_key);
+    
+                    // Used to place a buy order in a specific market. Use buylimit to place limit orders. Make sure you have the proper permissions set on your API keys for this call to work
+                    $buy_response = $bittrex->buyLimit($trading->coin, $trading->buy_limit, 1.3);
+    
+                    if($buy_response->success)
+                    {
+                        $buy_uuid = $buy_response->result->uuid;
+    
+                        $follower->user()->get()->first()->actionhistories()->create([
+                            'trading_id' => $trading->id,
+                            'amount' => $trading->buy_limit,
+                            'buy_uuid' => $buy_uuid
+                        ]);
 
-                    $follower->user()->get()->first()->actionhistories()->create([
-                        'trading_id' => $trading->id,
-                        'amount' => $trading->buy_limit,
-                        'buy_uuid' => $buy_uuid
-                    ]);
+                        $follower->actual_amount = $follower->actual_amount - $trading->buy_limit;
+                        $follower->save();
+                    }
                 }
-
-                // Used to place an sell order in a specific market. Use selllimit to place limit orders.
-                //$bittrex->sellLimit($trading->coin, $trading->sell_limit, 1.3);
+                else
+                {
+                    //User need money to pay
+                }
                 
             }
             

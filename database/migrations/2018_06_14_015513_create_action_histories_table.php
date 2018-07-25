@@ -17,7 +17,7 @@ class CreateActionHistoriesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('trading_id')->unsigned();
-            $table->float('amount', 8, 2);
+            $table->float('amount', 16, 8);
             $table->string('buy_uuid')->nullable();
             $table->string('sell_uuid')->nullable();
             $table->string('stop_uuid')->nullable();

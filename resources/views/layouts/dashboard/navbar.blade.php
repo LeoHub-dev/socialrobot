@@ -42,7 +42,7 @@
                     <a class="nav-link" href="javascript:void(0);">
                         <i class="now-ui-icons business_bank">
                         </i>
-                        <p>Balance (BTC): {{ number_format(Auth::user()->getBalance()->amount_btc,8) }}</p>
+                        <p>Balance Trading (BTC): {{ number_format(Auth::user()->getBalance()->amount_btc,8) }}</p>
                     </a>
                 </li>
                 @endif
