@@ -2,8 +2,7 @@
 
 @section('content')
 <div class="col-md-4 ml-auto mr-auto">
-    <form action="{{ route('login') }}" method="POST">
-        @csrf
+    
         <div class="card card-login card-plain">
             <div class="card-header ">
                 <div class="logo-container">
@@ -11,6 +10,8 @@
                     </img>
                 </div>
             </div>
+            <form action="{{ route('login') }}" method="POST">
+            @csrf
             <div class="card-body ">
                 <div class="input-group no-border form-control-lg">
                     <span class="input-group-prepend">
@@ -46,6 +47,8 @@
                 <button type="submit" class="btn btn-primary btn-round btn-lg btn-block mb-3">
                     {{ __('Login') }}
                 </button>
+
+                
            
                 <div class="pull-left">
                     <h6>
@@ -54,15 +57,33 @@
                         </a>
                     </h6>
                 </div>
+                
                 <div class="pull-right">
                     <h6>
                         <a class="link footer-link" href="#pablo">
                             <!--Need Help?-->
+                            
+                            
                         </a>
                     </h6>
                 </div>
             </div>
+            </form>
+            <div class="social text-center" style="clear:both">
+                <h5 class="card-description">
+                    o conectate con las redes
+                </h5>
+                <a href="{{ url('login/google') }}"><button class="btn btn-icon btn-round btn-google">
+                    <i class="fab fa-google-plus-g">
+                    </i>
+                </button></a>
+                <a href="{{ url('login/facebook') }}"><button class="btn btn-icon btn-round btn-facebook">
+                    <i class="fab fa-facebook-f">
+                    </i>
+                </button></a>
+                
+            </div>
         </div>
-    </form>
+    
 </div>
 @endsection

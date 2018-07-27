@@ -38,13 +38,13 @@ return [
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID'),         // Your FACEBOOK Client ID
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'), // Your FACEBOOK Client Secret
-        'redirect' => 'https://socialrobot.leohub.info/login/facebook/callback',
+        'redirect' => 'https://socialrobot.academiadetrading.net/login/facebook/callback',
     ],
 
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),         // Your GOOGLE Client ID
         'client_secret' => env('GOOGLE_CLIENT_SECRET'), // Your GOOGLE Client Secret
-        'redirect' => 'https://socialrobot.leohub.info/login/google/callback',
+        'redirect' => 'https://socialrobot.academiadetrading.net/login/google/callback',
     ],
 
 ];
