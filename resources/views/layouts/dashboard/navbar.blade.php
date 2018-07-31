@@ -53,7 +53,7 @@
                         <p>Wallet Balance (USD): {{ Auth::user()->wallet }}</p>
                     </a>
                 </li>
-                <li class="nav-item dropdown">
+                <!--<li class="nav-item dropdown">
                     <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="http://example.com" id="navbarDropdownMenuLink">
                         <i class="now-ui-icons location_world">
                         </i>
@@ -74,7 +74,7 @@
                             Something else here
                         </a>
                     </div>
-                </li>
+                </li>-->
                 <li class="nav-item dropdown">
                     <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" id="navbarDropdownUserLink">
                         <i class="now-ui-icons users_single-02">
@@ -92,9 +92,6 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                        <a class="dropdown-item" href="#">
-                            Something else here
-                        </a>
                     </div>
                 </li>
             </ul>

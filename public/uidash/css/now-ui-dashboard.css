@@ -157,7 +157,7 @@
 }
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-brown, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-brown {
     color: #fff;
-    background: #f96332;
+    background: #006cff;
 }
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-blue, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-blue {
     color: #fff;
@@ -282,7 +282,7 @@
     background-color: #18ce0f;
 }
 .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-brown~.bootstrap-switch-default {
-    background-color: #f96332;
+    background-color: #006cff;
 }
 .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-blue~.bootstrap-switch-default {
     background-color: #2CA8FF;
@@ -550,13 +550,13 @@
     background-color: #FFFFFF;
 }
 .slider.slider-primary .noUi-connect, .slider.slider-primary.noUi-connect {
-    background-color: #f96332;
+    background-color: #006cff;
 }
 .slider.slider-primary.noUi-target {
     background-color: rgba(249, 99, 50, 0.3);
 }
 .slider.slider-primary .noUi-handle {
-    background-color: #f96332;
+    background-color: #006cff;
 }
 .slider.slider-info .noUi-connect, .slider.slider-info.noUi-connect {
     background-color: #2CA8FF;
@@ -1760,28 +1760,28 @@ body.swal2-iosfix {
     background-color: #FFFFFF;
     -webkit-box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
     box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
-    color: #f96332;
+    color: #006cff;
     cursor: pointer;
     font-weight: 500;
 }
 .card-wizard[data-color="primary"] .moving-tab {
-    color: #f96332;
+    color: #006cff;
 }
 .card-wizard[data-color="primary"] .picture:hover {
-    border-color: #f96332;
+    border-color: #006cff;
 }
 .card-wizard[data-color="primary"] .choice:hover .icon, .card-wizard[data-color="primary"] .choice.active .icon {
-    border-color: #f96332;
-    color: #f96332;
+    border-color: #006cff;
+    color: #006cff;
 }
 .card-wizard[data-color="primary"] .checkbox input[type=checkbox]:checked+.checkbox-material .check {
-    background-color: #f96332;
+    background-color: #006cff;
 }
 .card-wizard[data-color="primary"] .radio input[type=radio]:checked~.check {
-    background-color: #f96332;
+    background-color: #006cff;
 }
 .card-wizard[data-color="primary"] .radio input[type=radio]:checked~.circle {
-    border-color: #f96332;
+    border-color: #006cff;
 }
 .card-wizard[data-color="white"] .moving-tab {
     color: #FFFFFF;
@@ -2087,7 +2087,7 @@ body.swal2-iosfix {
     background-color: transparent;
 }
 .bootstrap-datetimepicker-widget a[data-action="togglePicker"], .bootstrap-datetimepicker-widget a[data-action="togglePicker"]:hover {
-    color: #f96332;
+    color: #006cff;
 }
 .bootstrap-datetimepicker-widget a[data-action]:hover {
     background-color: transparent;
@@ -2107,7 +2107,7 @@ body.swal2-iosfix {
 }
 .bootstrap-datetimepicker-widget button[data-action] {
     width: 38px;
-    background-color: #f96332;
+    background-color: #006cff;
     height: 38px;
     padding: 0;
     -webkit-box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
@@ -2146,7 +2146,7 @@ body.swal2-iosfix {
 .bootstrap-datetimepicker-widget .picker-switch {
     text-align: center;
     border-radius: 3px;
-    color: #f96332;
+    color: #006cff;
 }
 .bootstrap-datetimepicker-widget .picker-switch::after {
     content: "Toggle Date and Time Screens";
@@ -2195,7 +2195,7 @@ body.swal2-iosfix {
     font-size: 12px;
     border-radius: 50%;
     text-align: center;
-    color: #f96332;
+    color: #006cff;
 }
 .bootstrap-datetimepicker-widget table th.prev::after {
     content: "Previous Month";
@@ -2205,7 +2205,7 @@ body.swal2-iosfix {
 }
 .bootstrap-datetimepicker-widget table th.dow {
     text-align: center;
-    color: #f96332;
+    color: #006cff;
     padding-bottom: 5px;
     padding-top: 10px;
 }
@@ -2256,7 +2256,7 @@ body.swal2-iosfix {
     right: 4px;
 }
 .bootstrap-datetimepicker-widget table td.active>div, .bootstrap-datetimepicker-widget table td.active:hover>div {
-    background-color: #f96332;
+    background-color: #006cff;
     color: #FFFFFF;
     -webkit-box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
@@ -2283,7 +2283,7 @@ body.swal2-iosfix {
     background: #eee;
 }
 .bootstrap-datetimepicker-widget table td span.active {
-    background-color: #f96332;
+    background-color: #006cff;
     color: #FFFFFF;
 }
 .bootstrap-datetimepicker-widget table td span.old {
@@ -2332,10 +2332,10 @@ input.datetimepicker[data-color]+.bootstrap-datetimepicker-widget table thead tr
     background-color: rgba(255, 255, 255, 0.2);
 }
 input.datetimepicker[data-color="orange"]+.bootstrap-datetimepicker-widget {
-    background-color: #f96332;
+    background-color: #006cff;
 }
 input.datetimepicker[data-color="orange"]+.bootstrap-datetimepicker-widget table td.active>div, input.datetimepicker[data-color="orange"]+.bootstrap-datetimepicker-widget table td.active:hover>div, input.datetimepicker[data-color="orange"]+.bootstrap-datetimepicker-widget button[data-action], input.datetimepicker[data-color="orange"]+.bootstrap-datetimepicker-widget.dropdown-menu.top:after, input.datetimepicker[data-color="orange"]+.bootstrap-datetimepicker-widget.dropdown-menu.bottom:before {
-    color: #f96332;
+    color: #006cff;
 }
 input.datetimepicker[data-color="blue"]+.bootstrap-datetimepicker-widget {
     background-color: #2CA8FF;
@@ -2838,7 +2838,7 @@ select.bs-select-hidden, select.selectpicker {
     padding: 0px 2px;
 }
 .bootstrap-tagsinput.primary-badge .tag {
-    background-color: #f96332;
+    background-color: #006cff;
     color: #FFFFFF;
 }
 .bootstrap-tagsinput.primary-badge .tag .tagsinput-remove-link {
@@ -3493,11 +3493,11 @@ NOTE: use percentage font sizes or else old IE chokes
     border: 0;
 }
 .fc button, .fc button.btn-primary {
-    background-color: #f96332;
+    background-color: #006cff;
     color: #FFFFFF;
 }
 .fc button:hover, .fc button:focus, .fc button:not(:disabled):not(.disabled):active, .fc button:not(:disabled):not(.disabled).active, .fc button:not(:disabled):not(.disabled):active:focus, .fc button:not(:disabled):not(.disabled).active:focus, .fc button:active:hover, .fc button.active:hover, .show>.fc button.dropdown-toggle, .show>.fc button.dropdown-toggle:focus, .show>.fc button.dropdown-toggle:hover, .fc button.btn-primary:hover, .fc button.btn-primary:focus, .fc button.btn-primary:not(:disabled):not(.disabled):active, .fc button.btn-primary:not(:disabled):not(.disabled).active, .fc button.btn-primary:not(:disabled):not(.disabled):active:focus, .fc button.btn-primary:not(:disabled):not(.disabled).active:focus, .fc button.btn-primary:active:hover, .fc button.btn-primary.active:hover, .show>.fc button.btn-primary.dropdown-toggle, .show>.fc button.btn-primary.dropdown-toggle:focus, .show>.fc button.btn-primary.dropdown-toggle:hover {
-    background-color: #fa7a50;
+    background-color: #207cfb;
     color: #FFFFFF;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -3507,26 +3507,26 @@ NOTE: use percentage font sizes or else old IE chokes
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
 }
 .fc button.disabled, .fc button.disabled:hover, .fc button.disabled:focus, .fc button.disabled.focus, .fc button.disabled:active, .fc button.disabled.active, .fc button:disabled, .fc button:disabled:hover, .fc button:disabled:focus, .fc button:disabled.focus, .fc button:disabled:active, .fc button:disabled.active, .fc button[disabled], .fc button[disabled]:hover, .fc button[disabled]:focus, .fc button[disabled].focus, .fc button[disabled]:active, .fc button[disabled].active, fieldset[disabled] .fc button, fieldset[disabled] .fc button:hover, fieldset[disabled] .fc button:focus, fieldset[disabled] .fc button.focus, fieldset[disabled] .fc button:active, fieldset[disabled] .fc button.active, .fc button.btn-primary.disabled, .fc button.btn-primary.disabled:hover, .fc button.btn-primary.disabled:focus, .fc button.btn-primary.disabled.focus, .fc button.btn-primary.disabled:active, .fc button.btn-primary.disabled.active, .fc button.btn-primary:disabled, .fc button.btn-primary:disabled:hover, .fc button.btn-primary:disabled:focus, .fc button.btn-primary:disabled.focus, .fc button.btn-primary:disabled:active, .fc button.btn-primary:disabled.active, .fc button.btn-primary[disabled], .fc button.btn-primary[disabled]:hover, .fc button.btn-primary[disabled]:focus, .fc button.btn-primary[disabled].focus, .fc button.btn-primary[disabled]:active, .fc button.btn-primary[disabled].active, fieldset[disabled] .fc button.btn-primary, fieldset[disabled] .fc button.btn-primary:hover, fieldset[disabled] .fc button.btn-primary:focus, fieldset[disabled] .fc button.btn-primary.focus, fieldset[disabled] .fc button.btn-primary:active, fieldset[disabled] .fc button.btn-primary.active {
-    background-color: #f96332;
-    border-color: #f96332;
+    background-color: #006cff;
+    border-color: #006cff;
 }
 .fc button.btn-simple, .fc button.btn-primary.btn-simple {
-    color: #f96332;
-    border-color: #f96332;
+    color: #006cff;
+    border-color: #006cff;
 }
 .fc button.btn-simple:hover, .fc button.btn-simple:focus, .fc button.btn-simple:active, .fc button.btn-primary.btn-simple:hover, .fc button.btn-primary.btn-simple:focus, .fc button.btn-primary.btn-simple:active {
     background-color: transparent;
-    color: #fa7a50;
-    border-color: #fa7a50;
+    color: #207cfb;
+    border-color: #207cfb;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
 .fc button.btn-link, .fc button.btn-primary.btn-link {
-    color: #f96332;
+    color: #006cff;
 }
 .fc button.btn-link:hover, .fc button.btn-link:focus, .fc button.btn-link:active, .fc button.btn-primary.btn-link:hover, .fc button.btn-primary.btn-link:focus, .fc button.btn-primary.btn-link:active {
     background-color: transparent;
-    color: #fa7a50;
+    color: #207cfb;
     text-decoration: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -4763,11 +4763,11 @@ be a descendant of the grid when it is being dragged.
     top: 1px;
 }
 .btn-primary {
-    background-color: #f96332;
+    background-color: #006cff;
     color: #FFFFFF;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:active:hover, .btn-primary.active:hover, .show>.btn-primary.dropdown-toggle, .show>.btn-primary.dropdown-toggle:focus, .show>.btn-primary.dropdown-toggle:hover {
-    background-color: #fa7a50;
+    background-color: #207cfb;
     color: #FFFFFF;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -4777,26 +4777,26 @@ be a descendant of the grid when it is being dragged.
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
 }
 .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary:disabled, .btn-primary:disabled:hover, .btn-primary:disabled:focus, .btn-primary:disabled.focus, .btn-primary:disabled:active, .btn-primary:disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {
-    background-color: #f96332;
-    border-color: #f96332;
+    background-color: #006cff;
+    border-color: #006cff;
 }
 .btn-primary.btn-simple {
-    color: #f96332;
-    border-color: #f96332;
+    color: #006cff;
+    border-color: #006cff;
 }
 .btn-primary.btn-simple:hover, .btn-primary.btn-simple:focus, .btn-primary.btn-simple:active {
     background-color: transparent;
-    color: #fa7a50;
-    border-color: #fa7a50;
+    color: #207cfb;
+    border-color: #207cfb;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
 .btn-primary.btn-link {
-    color: #f96332;
+    color: #006cff;
 }
 .btn-primary.btn-link:hover, .btn-primary.btn-link:focus, .btn-primary.btn-link:active {
     background-color: transparent;
-    color: #fa7a50;
+    color: #207cfb;
     text-decoration: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -4959,7 +4959,7 @@ be a descendant of the grid when it is being dragged.
 }
 .btn-neutral {
     background-color: #FFFFFF;
-    color: #f96332;
+    color: #006cff;
 }
 .btn-neutral:hover, .btn-neutral:focus, .btn-neutral:not(:disabled):not(.disabled):active, .btn-neutral:not(:disabled):not(.disabled).active, .btn-neutral:not(:disabled):not(.disabled):active:focus, .btn-neutral:not(:disabled):not(.disabled).active:focus, .btn-neutral:active:hover, .btn-neutral.active:hover, .show>.btn-neutral.dropdown-toggle, .show>.btn-neutral.dropdown-toggle:focus, .show>.btn-neutral.dropdown-toggle:hover {
     background-color: #FFFFFF;
@@ -5007,12 +5007,12 @@ be a descendant of the grid when it is being dragged.
 }
 .btn-neutral.active, .btn-neutral:active, .btn-neutral:active:focus, .btn-neutral:active:hover, .btn-neutral.active:focus, .btn-neutral.active:hover, .show>.btn-neutral.dropdown-toggle, .show>.btn-neutral.dropdown-toggle:focus, .show>.btn-neutral.dropdown-toggle:hover {
     background-color: #FFFFFF;
-    color: #fa7a50;
+    color: #207cfb;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
 .btn-neutral:hover, .btn-neutral:focus {
-    color: #fa7a50;
+    color: #207cfb;
 }
 .btn-neutral:hover:not(.nav-link), .btn-neutral:focus:not(.nav-link) {
     -webkit-box-shadow: none;
@@ -5446,14 +5446,14 @@ be a descendant of the grid when it is being dragged.
     box-shadow: none;
 }
 .form-control:focus {
-    border: 1px solid #f96332;
+    border: 1px solid #006cff;
     -webkit-box-shadow: none;
     box-shadow: none;
     outline: 0 !important;
     color: #2c2c2c;
 }
 .form-control:focus+.input-group-append .input-group-text, .form-control:focus~.input-group-append .input-group-text, .form-control:focus+.input-group-prepend .input-group-text, .form-control:focus~.input-group-prepend .input-group-text {
-    border: 1px solid #f96332;
+    border: 1px solid #006cff;
     border-left: none;
     background-color: transparent;
 }
@@ -5628,7 +5628,7 @@ be a descendant of the grid when it is being dragged.
 }
 .input-group-focus .input-group-prepend .input-group-text, .input-group-focus .input-group-append .input-group-text {
     background-color: #FFFFFF;
-    border-color: #f96332;
+    border-color: #006cff;
 }
 .input-group-focus.no-border .input-group-prepend .input-group-text, .input-group-focus.no-border .input-group-append .input-group-text {
     background-color: rgba(222, 222, 222, 0.5);
@@ -5742,10 +5742,10 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 a {
-    color: #f96332;
+    color: #006cff;
 }
 a:hover, a:focus {
-    color: #f96332;
+    color: #006cff;
 }
 h1, .h1 {
     font-size: 3.5em;
@@ -5815,7 +5815,7 @@ p.description {
     font-size: 1em;
 }
 .text-primary, a.text-primary:focus, a.text-primary:hover {
-    color: #f96332 !important;
+    color: #006cff !important;
 }
 .text-info, a.text-info:focus, a.text-info:hover {
     color: #2CA8FF !important;
@@ -5845,11 +5845,11 @@ p.description {
     text-transform: uppercase;
 }
 .blockquote.blockquote-primary {
-    border-color: #f96332;
-    color: #f96332;
+    border-color: #006cff;
+    color: #006cff;
 }
 .blockquote.blockquote-primary small {
-    color: #f96332;
+    color: #006cff;
 }
 .blockquote.blockquote-danger {
     border-color: #FF3636;
@@ -6124,7 +6124,7 @@ body {
     background-color: #888 !important;
 }
 .bg-primary {
-    background-color: #f96332 !important;
+    background-color: #006cff !important;
 }
 .bg-info {
     background-color: #2CA8FF !important;
@@ -7106,7 +7106,7 @@ Created using IcoMoon - icomoon.io
     background-color: #18ce0f;
 }
 .fixed-plugin .badge-orange {
-    background-color: #f96332;
+    background-color: #006cff;
 }
 .fixed-plugin .badge-yellow {
     background-color: #FFB236;
@@ -7409,10 +7409,10 @@ Created using IcoMoon - icomoon.io
     background: rgba(249, 99, 50, 0.3);
 }
 .progress-container.progress-primary .progress-bar {
-    background: #f96332;
+    background: #006cff;
 }
 .progress-container.progress-primary .progress-value, .progress-container.progress-primary .progress-badge {
-    color: #f96332;
+    color: #006cff;
 }
 .progress-container.progress-info .progress {
     background: rgba(44, 168, 255, 0.3);
@@ -7479,8 +7479,8 @@ Created using IcoMoon - icomoon.io
     background-color: #888;
 }
 .badge-primary {
-    border-color: #f96332;
-    background-color: #f96332;
+    border-color: #006cff;
+    background-color: #006cff;
 }
 .badge-info {
     border-color: #2CA8FF;
@@ -7571,8 +7571,8 @@ Created using IcoMoon - icomoon.io
     box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
 }
 .pagination .page-item.active>.page-link, .pagination .page-item.active>.page-link:focus, .pagination .page-item.active>.page-link:hover {
-    background-color: #f96332;
-    border-color: #f96332;
+    background-color: #006cff;
+    border-color: #006cff;
     color: #FFFFFF;
 }
 .pagination .page-item.disabled>.page-link {
@@ -7587,8 +7587,8 @@ Created using IcoMoon - icomoon.io
     border-color: #18ce0f;
 }
 .pagination.pagination-primary .page-item.active>.page-link, .pagination.pagination-primary .page-item.active>.page-link:focus, .pagination.pagination-primary .page-item.active>.page-link:hover {
-    background-color: #f96332;
-    border-color: #f96332;
+    background-color: #006cff;
+    border-color: #006cff;
 }
 .pagination.pagination-warning .page-item.active>.page-link, .pagination.pagination-warning .page-item.active>.page-link:focus, .pagination.pagination-warning .page-item.active>.page-link:hover {
     background-color: #FFB236;
@@ -7608,7 +7608,7 @@ Created using IcoMoon - icomoon.io
 .pagination.pagination-neutral .page-item.active>.page-link, .pagination.pagination-neutral .page-item.active>.page-link:focus, .pagination.pagination-neutral .page-item.active>.page-link:hover {
     background-color: #FFFFFF;
     border-color: #FFFFFF;
-    color: #f96332;
+    color: #006cff;
 }
 .info.info-hover .info-title {
     -webkit-transition: color .4s;
@@ -7648,7 +7648,7 @@ Created using IcoMoon - icomoon.io
     color: #FF3636;
 }
 .info.info-hover:hover .icon.icon-primary+.info-title {
-    color: #f96332;
+    color: #006cff;
 }
 .info.info-hover:hover .icon.icon-success+.info-title {
     color: #18ce0f;
@@ -7716,7 +7716,7 @@ Created using IcoMoon - icomoon.io
     overflow: hidden;
 }
 .icon.icon-primary {
-    color: #f96332;
+    color: #006cff;
 }
 .icon.icon-primary.icon-circle {
     -webkit-box-shadow: 0px 9px 30px -6px rgba(249, 99, 50, 0.5);
@@ -7806,10 +7806,10 @@ Created using IcoMoon - icomoon.io
 }
 .nav-pills.nav-pills-neutral .nav-item .nav-link.active, .nav-pills.nav-pills-neutral .nav-item .nav-link.active:focus, .nav-pills.nav-pills-neutral .nav-item .nav-link.active:hover {
     background-color: #FFFFFF;
-    color: #f96332;
+    color: #006cff;
 }
 .nav-pills.nav-pills-primary .nav-item .nav-link.active, .nav-pills.nav-pills-primary .nav-item .nav-link.active:focus, .nav-pills.nav-pills-primary .nav-item .nav-link.active:hover {
-    background-color: #f96332;
+    background-color: #006cff;
 }
 .nav-pills.nav-pills-info .nav-item .nav-link.active, .nav-pills.nav-pills-info .nav-item .nav-link.active:focus, .nav-pills.nav-pills-info .nav-item .nav-link.active:hover {
     background-color: #2CA8FF;
@@ -7881,8 +7881,8 @@ Created using IcoMoon - icomoon.io
     color: #FFFFFF;
 }
 .nav-tabs.nav-tabs-primary>.nav-item>.nav-link.active {
-    border-color: #f96332;
-    color: #f96332;
+    border-color: #006cff;
+    color: #006cff;
 }
 .nav-tabs.nav-tabs-info>.nav-item>.nav-link.active {
     border-color: #2CA8FF;
@@ -8160,22 +8160,22 @@ Created using IcoMoon - icomoon.io
     top: -9px;
 }
 .popover.popover-primary {
-    background-color: #f96332;
+    background-color: #006cff;
 }
 .popover.popover-primary .popover-body {
     color: #FFFFFF;
 }
 .popover.popover-primary.bs-popover-right .arrow:after {
-    border-right-color: #f96332;
+    border-right-color: #006cff;
 }
 .popover.popover-primary.bs-popover-top .arrow:after {
-    border-top-color: #f96332;
+    border-top-color: #006cff;
 }
 .popover.popover-primary.bs-popover-bottom .arrow:after {
-    border-bottom-color: #f96332;
+    border-bottom-color: #006cff;
 }
 .popover.popover-primary.bs-popover-left .arrow:after {
-    border-left-color: #f96332;
+    border-left-color: #006cff;
 }
 .popover.popover-primary .popover-header {
     color: #FFFFFF;
@@ -8378,14 +8378,14 @@ Created using IcoMoon - icomoon.io
     box-shadow: 0px 5px 50px 0px rgba(0, 0, 0, 0.3);
 }
 .modal.modal-mini .modal-profile i {
-    color: #f96332;
+    color: #006cff;
     font-size: 21px;
 }
 .modal.modal-mini .modal-profile[class*="modal-profile-"] i {
     color: #FFFFFF;
 }
 .modal.modal-mini .modal-profile.modal-profile-primary {
-    background-color: #f96332;
+    background-color: #006cff;
 }
 .modal.modal-mini .modal-profile.modal-profile-danger {
     background-color: #FF3636;
@@ -8489,7 +8489,7 @@ Created using IcoMoon - icomoon.io
     color: rgba(255, 255, 255, 0.8);
 }
 .modal.modal-primary .modal-content {
-    background-color: #f96332;
+    background-color: #006cff;
     color: #FFFFFF;
 }
 .modal.modal-primary .modal-header .close {
@@ -8989,7 +8989,7 @@ Created using IcoMoon - icomoon.io
     width: 26px;
 }
 .sidebar .sidebar-wrapper [data-toggle="collapse"]~div>ul>li.active>a .sidebar-mini-icon, .off-canvas-sidebar .sidebar-wrapper [data-toggle="collapse"]~div>ul>li.active>a .sidebar-mini-icon {
-    color: #f96332;
+    color: #006cff;
 }
 .sidebar .navbar-minimize, .off-canvas-sidebar .navbar-minimize {
     position: absolute;
@@ -9070,7 +9070,7 @@ Created using IcoMoon - icomoon.io
     border-radius: 30px;
     -webkit-box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
     box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
-    color: #f96332;
+    color: #006cff;
     height: 44px;
     width: calc(100% - 5px);
     top: 0;
@@ -9212,13 +9212,13 @@ Created using IcoMoon - icomoon.io
     color: #18ce0f;
 }
 .sidebar[data-color="orange"]:after, .off-canvas-sidebar[data-color="orange"]:after {
-    background: #f96332;
+    background: #006cff;
 }
 .sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]), .off-canvas-sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]) {
-    color: #f96332;
+    color: #006cff;
 }
 .sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]) i, .off-canvas-sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]) i {
-    color: #f96332;
+    color: #006cff;
 }
 .sidebar[data-color="red"]:after, .off-canvas-sidebar[data-color="red"]:after {
     background: #FF3636;
@@ -9595,10 +9595,10 @@ Created using IcoMoon - icomoon.io
     height: 400px;
 }
 .card[data-background-color="orange"] {
-    background-color: #f96332;
+    background-color: #006cff;
 }
 .card[data-background-color="orange"] .card-header {
-    background-color: #f96332;
+    background-color: #006cff;
 }
 .card[data-background-color="orange"] .card-footer .stats {
     color: #FFFFFF;
@@ -9791,7 +9791,7 @@ Created using IcoMoon - icomoon.io
 .card-collapse .card .card-header a[data-toggle="collapse"] i {
     float: right;
     position: relative;
-    color: #f96332;
+    color: #006cff;
     top: 1px;
 }
 .card-collapse .card .card-header:after {
@@ -9888,9 +9888,9 @@ Created using IcoMoon - icomoon.io
     position: relative;
 }
 .card-pricing .card-icon.icon-primary i {
-    -webkit-box-shadow: 0px 9px 30px -6px #f96332;
-    box-shadow: 0px 9px 30px -6px #f96332;
-    color: #f96332;
+    -webkit-box-shadow: 0px 9px 30px -6px #006cff;
+    box-shadow: 0px 9px 30px -6px #006cff;
+    color: #006cff;
 }
 .card-pricing .card-icon.icon-info i {
     -webkit-box-shadow: 0px 9px 30px -6px #2CA8FF;
@@ -10143,7 +10143,7 @@ Created using IcoMoon - icomoon.io
     font-size: 32px;
 }
 .card-testimonial .icon.icon-primary i {
-    color: #f96332;
+    color: #006cff;
 }
 .card-testimonial .icon.icon-info i {
     color: #2CA8FF;
@@ -10577,7 +10577,7 @@ Created using IcoMoon - icomoon.io
     top: 36%;
     left: 44%;
     font-size: 65px;
-    color: #f96332;
+    color: #006cff;
     padding: 1px;
 }
 .section-nucleo-icons .icons-container i:nth-child(7) {
