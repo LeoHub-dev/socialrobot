@@ -46,7 +46,7 @@ class TradingHistory extends Model
 
             foreach($user_trading->followers()->get() as $follower) {
 
-                if($follower->actual_amount >= $trading->buy_limit) //User has anough to pay
+                if($follower->orders_amount >= 1 && $follower->actual_amount/$follower->orders_amount >= $trading->buy_limit) //User has anough to pay
                 {
                     $actived_api = $follower->user()->apis()->where('active',true)->first();
                     $bittrex = new Bittrex($actived_api->pub_key, $actived_api->secret_key);
@@ -65,6 +65,7 @@ class TradingHistory extends Model
                         ]);
 
                         $follower->actual_amount = $follower->actual_amount - $trading->buy_limit;
+                        $follower->orders_amount = $follower->orders_amount - 1;
                         $follower->save();
                     }
                 }

@@ -29,6 +29,29 @@
       demo.checkFullPageBackgroundImage();
     });
   </script>
+  <div aria-labelledby="myModalLabel" class="modal fade modal-mini modal-primary" id="privacy" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <div class="modal-profile">
+                    <i class="now-ui-icons travel_info">
+                    </i>
+                </div>
+            </div>
+            <div class="modal-body text-center">
+                <h3>Politicas de Privacidad</h3>
+                <p class="errorText">
+                  SocialRobot asegura la privacidad de sus clientes. Al ingresar con las redes, accedes al acceso a tu perfil en dicha red para la creacion de un perfil en nuestra pagina.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-link btn-neutral" data-dismiss="modal" type="button">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>

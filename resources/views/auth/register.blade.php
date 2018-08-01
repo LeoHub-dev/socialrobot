@@ -61,6 +61,9 @@
                         <i class="fab fa-facebook-square">
                         </i> Conectar con Facebook
                     </button></a>
+                    <h5 class="card-description">
+                        <a href="javascript:void(0)"  data-toggle="modal" data-target="#privacy">Politicas de Privacidad</a>
+                    </h5>
                   
                 </div>
             </div>
@@ -73,4 +76,7 @@
         </div>
     </div>
 </div>
+
+
+
 @endsection
